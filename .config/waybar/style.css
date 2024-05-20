@@ -1,16 +1,16 @@
-@define-color background #1d2021;
-@define-color foreground #ebdbb2;
-@define-color dim        #928374;
-@define-color yellow     #fabd2f;
-@define-color red        #fb4934;
-@define-color green      #b8bb26;
+@define-color background              #fbf1c7;
+@define-color foreground              #3c3836;
+@define-color red                     #cc241d;
+@define-color green                   #98971a;
+@define-color yellow                  #d79921;
+@define-color dim                     #928374;
 
 * {
   background: @background;
   border: none;
   border-radius: 0;
-  font-family: Input, "Font Awesome 6 Free Solid";
-  font-size: 13px;
+  font-family: Input, "Fira Code Nerd Font";
+  font-size: 15px;
   min-height: 0;
 }
 
@@ -22,11 +22,11 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0 10px;
+  padding: 0 5px;
   background: transparent;
   color: @foreground;
-  border-top: 3px solid @background;
-  border-bottom: 3px solid transparent;
+  border-top: 1px solid @background;
+  border-bottom: 1px solid transparent;
 }
 
 #workspaces button.focused {
@@ -41,30 +41,15 @@ window#waybar {
   border-bottom: 3px solid @red;
 }
 
-#custom-usbguard,
-#custom-decrypted,
-#custom-updates,
-#custom-mail,
-#custom-vpn.off,
 #battery.warning,
 #disk.warning,
 #memory.warning,
 #cpu.warning,
-#custom-dnd.dnd-notification,
-#custom-dnd.dnd-none {
-  border-top: 3px solid @background;
-  border-bottom: 3px solid @yellow;
-}
 
-#custom-security,
-#custom-systemd,
 #battery.critical,
 #disk.critical,
 #memory.critical,
-#cpu.critical,
-#custom-yubikey,
-#custom-eyes,
-#custom-recording {
+#cpu.critical {
   border-top: 3px solid @background;
   border-bottom: 3px solid @red;
 }
@@ -76,14 +61,6 @@ window#waybar {
 
 #mode,
 #pulseaudio,
-#custom-usbguard,
-#custom-yubikey,
-#custom-eyes,
-#custom-decrypted,
-#custom-security,
-#custom-systemd,
-#custom-updates,
-#custom-mail,
 #network,
 #cpu,
 #disk,
@@ -91,14 +68,11 @@ window#waybar {
 #backlight,
 #battery,
 #clock {
-  padding: 0 6px;
-  margin: 0 6px;
+  padding: 0 3px;
+  margin: 0 3px;
 }
 
-#custom-vpn,
-#custom-dnd,
-#language,
-#custom-recording {
+#language {
   padding: 0;
   margin: 0 6px;
 }
@@ -111,15 +85,6 @@ window#waybar {
 #battery,
 #clock,
 #cpu,
-#custom-eyes,
-#custom-mail,
-#custom-progress,
-#custom-recording,
-#custom-security,
-#custom-systemd,
-#custom-updates,
-#custom-usbguard,
-#custom-yubikey,
 #disk,
 #memory,
 #mode,
@@ -128,7 +93,14 @@ window#waybar {
   color: @foreground;
 }
 
-#custom-decrypted,
-#custom-vpn {
-  color: @dim;
+#workspaces button {
+	color: @dim;
+}
+
+#workspaces button.active {
+	color: @foreground;
+}
+
+#workspaces button.urgent {
+	color: @red;
 }

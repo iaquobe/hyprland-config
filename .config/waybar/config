@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "height": 20,
+    "height": 25,
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -83,6 +83,17 @@
         "on-click": "pavucontrol",
         "on-click-right": "push2talk -t",
         "on-click-middle": "helvum"
-    }
+    },
+		"hyprland/workspaces": {
+			"format": "{icon} {windows}",
+			"format-window-separator": " ",
+			"window-rewrite-default": "",
+			"window-rewrite": {
+				"firefox": "", 
+				"kitty": "", 
+				"title<.*Spotify.*>": "",
+				"class<.*zathura>": "󰈙",
+			},
+		}
 }
 

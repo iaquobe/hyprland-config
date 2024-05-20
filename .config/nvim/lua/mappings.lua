@@ -17,13 +17,13 @@ map("n","<M-n>"     ,"<cmd> NvimTreeToggle <CR>"                , { desc="toggle
 map("n","<Leader>fj","<cmd> Telescope jumplist <CR>"            , { desc="Find jumps"})
 map("n", "<leader>b",
   function()
-    require("nvchad.tabufline").tabuflinePrev()
+    require("nvchad.tabufline").prev()
   end,
   {desc="Goto next buffer"})
 map("n", "<leader>n",
   function()
-    require("nvchad.tabufline").tabuflineNext()
-  end, 
+    require("nvchad.tabufline").next()
+  end,
   {desc="Goto prev buffer"})
 
 map("v", ">", ">gv", {desc="indent"})
