@@ -1,0 +1,75 @@
+set font "monospace normal 16"
+set statusbar-basename true
+
+# Allow recolor
+set recolor 'true'
+
+# Don't allow original hue when recoloring
+set recolor-keephue 'true'
+
+# Don't keep original image colors while recoloring
+set recolor-reverse-video 'false'
+
+# Command line completion entries
+set completion-fg '#654735'
+set completion-bg '#f5edca'
+
+# Command line completion group elements
+set completion-group-fg '#6c782e'
+set completion-group-bg '#f5edca'
+
+# Current command line completion element
+set completion-highlight-fg '#f5edca'
+set completion-highlight-bg '#654735'
+
+# Default foreground/background color
+set default-fg "#654735"
+set default-bg '#f5edca'
+
+# Input bar
+set inputbar-fg '#654735'
+set inputbar-bg '#f5edca'
+
+# Notification
+set notification-fg '#654735'
+set notification-bg '#f5edca'
+
+# Error notification
+set notification-error-fg '#654735'
+set notification-error-bg '#f8e4c9'
+
+# Warning notification
+set notification-warning-fg '#654735'
+set notification-warning-bg '#f8e4c9'
+
+# Tab - TODO
+# set tabbar-fg
+# set tabbar-bg
+
+# Focused tab - TODO
+# set tabbar-focus-fg
+# set tabbar-focus-bg
+
+# Status bar
+set statusbar-fg '#654735'
+set statusbar-bg '#f5edca'
+
+# Highlighting parts of the document (e.g. show search results)
+set highlight-color '#6c782e'
+set highlight-active-color '#6c782e'
+
+# Represent light/dark colors in recoloring mode
+set recolor-lightcolor rgba(0,0,0,0)
+set recolor-darkcolor '#654735'
+
+# 'Loading...' text
+set render-loading-fg '#654735'
+set render-loading-bg '#f5edca'
+
+# Index mode
+set index-fg '#654735'
+set index-bg '#f5edca'
+
+# Selected element in index mode
+set index-active-fg '#f5edca'
+set index-active-bg '#654735'
