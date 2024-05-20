@@ -93,6 +93,10 @@
 				"kitty": "", 
 				"title<.*Spotify.*>": "",
 				"class<.*zathura>": "󰈙",
+				"title<ChatGPT.*>": "󱤓",
+				"class<Signal>": "󰭹",
+				"title<.*WhatsApp.*>": "",
+				"class<thunderbird>": "󰇮",
 			},
 		}
 }
