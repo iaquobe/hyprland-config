@@ -5,6 +5,14 @@
   transition: 200ms;
 }
 
+notification {
+    margin: 10px; 
+}
+
+notification > image {
+    margin-right: 10px; 
+}
+
 .floating-notifications.background .notification-row .notification-background {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #f2e5bc;
   border-radius: 5px;
