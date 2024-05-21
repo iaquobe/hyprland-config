@@ -4,6 +4,8 @@
 @define-color green                   #98971a;
 @define-color yellow                  #d79921;
 @define-color dim                     #928374;
+@define-color active				          #ebdbb2;
+@define-color visible									#665c54;
 
 * {
   background: @background;
@@ -24,9 +26,18 @@ window#waybar {
 #workspaces button {
   padding: 0 10px;
   background: transparent;
-  color: @foreground;
+	color: @dim;
   border-top: 1px solid @background;
   border-bottom: 1px solid transparent;
+}
+
+#workspaces button.visible {
+	color: @foreground;
+}
+
+#workspaces button.active {
+	/* background: @active; */
+  border-bottom: 2px solid @dim;
 }
 
 #workspaces button.focused {
@@ -35,7 +46,9 @@ window#waybar {
 
 #workspaces button.urgent {
   border-bottom: 3px solid @yellow;
+	color: @red;
 }
+
 
 #mode {
   border-bottom: 3px solid @red;
@@ -93,14 +106,3 @@ window#waybar {
   color: @foreground;
 }
 
-#workspaces button {
-	color: @dim;
-}
-
-#workspaces button.active {
-	color: @foreground;
-}
-
-#workspaces button.urgent {
-	color: @red;
-}
