@@ -26,7 +26,7 @@ function chpwd() {
 
 
 
-autoload -U compinit
-compinit
-autoload -Uz compinit && compinit
-autoload -Uz promptinit && promptinit
+# autoload -U compinit
+# compinit
+# autoload -Uz compinit && compinit
+# autoload -Uz promptinit && promptinit
