@@ -9,6 +9,11 @@ plugins=(git vi-mode fzf zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# enable ssh-agent so that I don't need to enter password everytime
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)"
+fi
+
 alias vim=nvim
 alias ls=lsd
 
@@ -20,13 +25,5 @@ do
 	alias $prog="muted $prog"
 done
 
-function chpwd() {
-    lsd
-}
+function chpwd() { lsd }
 
-
-
-# autoload -U compinit
-# compinit
-# autoload -Uz compinit && compinit
-# autoload -Uz promptinit && promptinit

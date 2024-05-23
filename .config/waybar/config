@@ -11,7 +11,6 @@
         "memory",
         "disk",
         "backlight",
-        "sway/language",
         "battery",
         "clock"
     ],
@@ -100,7 +99,7 @@
 				"class<.*zathura>": "󰈙",
 				"title<ChatGPT.*>": "󱤓",
 				"class<Signal>": "󰭹",
-				"class<Brave.*>": "", 
+				"class<Brave-browser>": "", 
 				"class<thunderbird>": "󰇮",
 			},
 		}
