@@ -27,6 +27,7 @@ lspconfig.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = {"python"},
+  root_dir = lspconfig.util.root_pattern(".git", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyproject.toml"),
 })
 
 lspconfig.texlab.setup{
