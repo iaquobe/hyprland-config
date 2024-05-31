@@ -276,3 +276,7 @@ trough {
   border-radius: 8px;
   border: 1px solid #d65d0e;
 }
+
+.widget-mpris-player {
+  background-color: #fbf1c7;
+}

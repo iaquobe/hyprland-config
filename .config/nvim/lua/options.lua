@@ -16,6 +16,7 @@ autocmd("BufEnter", {
 })
 
 
+vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
