@@ -4,6 +4,7 @@
     "modules-left": [
         "hyprland/workspaces"
     ],
+
     "modules-right": [
         "pulseaudio",
         "network",
@@ -12,7 +13,8 @@
         "disk",
         "backlight",
         "battery",
-        "clock"
+        "clock",
+				"custom/notification"
     ],
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -102,6 +104,26 @@
 				"class<Brave-browser>": "", 
 				"class<thunderbird>": "󰇮",
 			},
-		}
+		},
+		"custom/notification": {
+			"tooltip": false,
+			"format": "{icon} ",
+			"format-icons": {
+				"notification": "<span foreground='red'><sup></sup></span>",
+				"none": "",
+				"dnd-notification": "<span foreground='red'><sup></sup></span>",
+				"dnd-none": "",
+				"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+				"inhibited-none": "",
+				"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+				"dnd-inhibited-none": ""
+			},
+			"return-type": "json",
+			"exec-if": "which swaync-client",
+			"exec": "swaync-client -swb",
+			"on-click": "swaync-client -t -sw",
+			"on-click-right": "swaync-client -d -sw",
+			"escape": true
+  },
 }
 
