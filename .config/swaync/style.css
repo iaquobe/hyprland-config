@@ -8,6 +8,7 @@
 @define-color shade								#665c54;
 @define-color bg-selected					#d79921; 
 @define-color bg-selected-darker	#b57614;
+@define-color shadow							rgba(28, 28, 28, 0.6);
 
 .control-center .notification-row:focus,
 .control-center .notification-row:hover {
@@ -22,7 +23,7 @@
 }
 
 .notification {
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 2px 0 @shadow;
 	background: transparent;
 	margin: 0px;
 	border-radius: 5px;
@@ -85,7 +86,7 @@
 .control-center {
 	background: @cc-bg;
 	border-radius: 5px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px 0 @shadow;
 }
 
 .control-center-list {
@@ -111,7 +112,7 @@
 	margin: 10px 10px 5px 10px;
 	font-size: 1.5rem;
 	border-radius: 5px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 .widget-dnd {
@@ -121,7 +122,7 @@
 	border-radius: 5px;
 	font-size: large;
 	color: @text-color;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 .widget-dnd>switch {
@@ -147,12 +148,12 @@
 .widget-backlight, 
 .widget-volume {
 	border-radius: 5px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 .widget-label {
 	margin: 10px 10px 5px 10px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 .widget-label>label {
@@ -166,7 +167,7 @@
 	padding: 5px 10px 0px 0px;
 	margin: 5px 10px 5px 10px;
 	border-radius: 5px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 
@@ -200,7 +201,7 @@
 	margin: 5px 10px 10px 10px;
 	border-radius: 5px;
 	background: @noti-bg;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 .widget-title>button,
@@ -210,7 +211,7 @@
 	border-radius: 5px;
 	color: @text-color;
 	border: 0px;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 0 @shadow;
 }
 
 
