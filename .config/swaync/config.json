@@ -57,8 +57,7 @@
 				"image-radius": 7
 			},
 			"volume": {
-				"label": "󰕾",
-				"show-per-app": true
+				"label": "󰕾"
 			},
 			"backlight": {
 				"label": "󰃟"
