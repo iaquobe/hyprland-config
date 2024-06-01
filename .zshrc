@@ -19,11 +19,16 @@ alias ls=lsd
 
 # muted programs will not stop the shell that runs them
 alias muted='() { "$@" &>/dev/null &; disown }'
-muted_prog=( kitty zathura firefox vimiv spotify alacritty sxiv )
-for prog in $muted_prog
-do
-	alias $prog="muted $prog"
-done
+
+# muted_prog=( kitty zathura firefox vimiv spotify alacritty sxiv )
+# for prog in $muted_prog
+# do
+# 	alias $prog="muted $prog"
+# done
+#
 
 function chpwd() { lsd }
 
+
+z() { zathura "$@" &>/dev/null &; disown }
+compdef _zathura z

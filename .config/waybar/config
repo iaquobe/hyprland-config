@@ -97,7 +97,7 @@
 				"title<.*tmux.*>": "",
 				"title<timah>": "󰥔",
 				"title<.*vim.*>": "",
-				"title<.*Spotify.*>": "",
+				"class<Spotify>": "",
 				"class<.*zathura>": "󰈙",
 				"title<ChatGPT.*>": "󱤓",
 				"class<Signal>": "󰭹",

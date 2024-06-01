@@ -1,5 +1,5 @@
 set font "monospace normal 16"
-set statusbar-basename true
+# set statusbar-basename true
 
 # Allow recolor
 set recolor 'true'

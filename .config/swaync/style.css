@@ -21,7 +21,7 @@
 }
 
 .notification {
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
 	background: transparent;
 	margin: 0px;
 	border-radius: 5px;
@@ -110,6 +110,7 @@
 	margin: 10px 10px 5px 10px;
 	font-size: 1.5rem;
 	border-radius: 5px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-title>button {
@@ -133,6 +134,7 @@
 	border-radius: 5px;
 	font-size: large;
 	color: @text-color;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-dnd>switch {
@@ -147,16 +149,23 @@
 
 .widget-dnd>switch slider {
 	background: @cc-bg;
-	border-radius: 5px
+	border-radius: 5px;
 }
 
 .widget-dnd>switch:checked slider {
 	background: @cc-bg;
-	border-radius: 5px
+	border-radius: 5px;
+}
+
+.widget-backlight, 
+.widget-volume {
+	border-radius: 5px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-label {
 	margin: 10px 10px 5px 10px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-label>label {
@@ -170,6 +179,7 @@
 	padding: 5px 10px 0px 0px;
 	margin: 5px 10px 5px 10px;
 	border-radius: 5px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-mpris > box > button {
@@ -197,6 +207,7 @@
 	margin: 5px 10px 10px 10px;
 	border-radius: 5px;
 	background: @noti-bg-darker;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
