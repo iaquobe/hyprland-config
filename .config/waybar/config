@@ -27,7 +27,7 @@
         }
     },
     "disk": {
-        "format": "<span>󰋊</span> {percentage_free}%",
+        "format": "<span>󰟜</span> {percentage_free}%",
         "states": {
             "warning": 70,
             "critical": 90
@@ -42,7 +42,7 @@
     },
     "backlight": {
         "format": "<span>{icon}</span> {percent}%",
-        "format-icons": [""]
+        "format-icons": ["󰃠"]
     },
     "sway/language": {
         "min-length": 3
@@ -52,9 +52,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "<span>{icon}</span> {capacity}%",
-        "format-charging": "<span></span> {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format": "<span>{icon}</span>{capacity}%",
+        "format-charging": "<span>󱐋</span>{capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂂", "󰁹"]
     },
     "network": {
         "interval": 2,
@@ -67,8 +67,8 @@
     "pulseaudio": {
         "format": "<span>{icon}</span> {volume}% {format_source}",
         "format-bluetooth": "<span>{icon}</span> {volume}% {format_source}",
-        "format-bluetooth-muted": "<span> {icon}</span> {format_source}",
-        "format-muted": "<span></span>   {format_source}",
+        "format-bluetooth-muted": "<span> {icon}󰝟</span> {format_source}",
+        "format-muted": "<span>󰝟</span>   {format_source}",
         "format-source": "<span></span> {volume}%",
         "format-source-muted": "<span></span>",
         "format-icons": {
@@ -87,7 +87,7 @@
 		"hyprland/workspaces": {
 			"format": "{icon} {windows}",
 			"format-window-separator": " ",
-			"window-rewrite-default": "",
+			"window-rewrite-default": "󰘔",
 			"window-rewrite": {
 				"title<.*GitLab.*>": "󰊢",
 				"title<.*GitHub.*>": "󰊢",
