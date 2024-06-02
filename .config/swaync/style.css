@@ -126,8 +126,9 @@
 }
 
 .widget-dnd>switch {
-	border-radius: 4px;
+	border-radius: 5px;
 	background: @shade;
+	border: 1px solid @text-color-alt;
 }
 
 .widget-dnd>switch:checked {
@@ -138,10 +139,11 @@
 .widget-dnd>switch slider {
 	background: @cc-bg;
 	border-radius: 5px;
+	margin: 1px;
 }
 
-.widget-dnd>switch:checked slider {
-	background: @cc-bg;
+.widget-dnd>switch:hover slider {
+	background: @bg-selected;
 	border-radius: 5px;
 }
 
