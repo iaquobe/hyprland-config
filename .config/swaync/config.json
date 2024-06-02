@@ -79,7 +79,16 @@
 					{
 						"label": "󰍹",
 						"command": "wdisplays"
+					},
+					{
+						"label": "󰹑",
+						"command": "screenshot"
+					},
+					{
+						"label": "",
+						"command": "record"
 					}
+
 				]
 			}
 		}
