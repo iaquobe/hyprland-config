@@ -53,7 +53,7 @@
             "critical": 15
         },
         "format": "<span>{icon}</span>{capacity}%",
-        "format-charging": "<span>󱐋</span>{capacity}%",
+        "format-charging": "<span>󰂄</span>{capacity}%",
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂂", "󰁹"]
     },
     "network": {
@@ -102,6 +102,7 @@
 				"class<Signal>": "󰭹",
 				"class<Brave-browser>": "", 
 				"class<thunderbird>": "󰇮",
+				"class<discord>": "󰙯",
 			},
 		},
 		"custom/notification": {
