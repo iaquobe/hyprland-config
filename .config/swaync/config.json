@@ -25,7 +25,7 @@
 	"script-fail-notify": true,
   "notification-visibility": {
     "example-name": {
-      "state": "muted",
+      "state": "ignored",
       "urgency": "Low",
       "app-name": "Spotify"
     }

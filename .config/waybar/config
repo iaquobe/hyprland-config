@@ -101,7 +101,7 @@
 				"title<ChatGPT.*>": "󱤓",
 				"class<Signal>": "󰭹",
 				"class<Brave-browser>": "", 
-				"class<thunderbird>": "󰇮",
+				"class<.*thunderbird>": "󰇮",
 				"class<discord>": "󰙯",
 			},
 		},
