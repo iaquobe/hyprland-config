@@ -40,7 +40,16 @@ window#waybar > box {
 	border-radius: 0;
 }
 
+#workspaces button:first-child {
+	border-bottom-left-radius: 5px;
+}
+
+#workspaces button:last-child {
+	border-bottom-right-radius: 5px;
+}
+
 #workspaces button.visible {
+	color: @foreground-darker;
 }
 
 #workspaces button.active {
@@ -49,17 +58,17 @@ window#waybar > box {
 }
 
 #workspaces button.focused {
-  border-bottom: 3px solid @green;
+  border-bottom: 2px solid @green;
 	color: @foreground-darker;
 }
 
 #workspaces button.urgent {
-  border-bottom: 3px solid @yellow;
+  border-bottom: 2px solid @yellow;
 	color: @red;
 }
 
 #mode {
-  border-bottom: 3px solid @red;
+  border-bottom: 2px solid @red;
 }
 
 #battery.warning,
@@ -70,13 +79,11 @@ window#waybar > box {
 #disk.critical,
 #memory.critical,
 #cpu.critical {
-  border-top: 3px solid @background;
-  border-bottom: 3px solid @red;
+  border-bottom: 2px solid @red;
 }
 
 #battery.charging {
-  border-top: 3px solid @background;
-  border-bottom: 3px solid @green;
+  border-bottom: 2px solid @green;
 }
 
 #mode,
