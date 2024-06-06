@@ -36,7 +36,7 @@ window#waybar > box {
   padding: 0 10px;
   background: transparent;
 	color: @dim;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 	border-radius: 0;
 }
 

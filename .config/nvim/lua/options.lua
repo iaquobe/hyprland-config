@@ -15,7 +15,7 @@ autocmd("BufEnter", {
 	command = "startinsert"
 })
 
-
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
