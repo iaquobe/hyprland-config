@@ -93,29 +93,55 @@ return {
 	},
 
 	{
-		'rmagatti/auto-session',
+		"iaquobe/true-zen.nvim",
 		lazy = false,
 		config = function()
-      require('auto-session').setup({
-        log_level = 'info',
-        auto_session_enable_last_session = true,
-        auto_session_root_dir = vim.fn.stdpath('data') .. '/sessions/',
-        auto_session_enabled = true,
-        auto_save_enabled = true,
-        auto_restore_enabled = true,
-        auto_session_suppress_dirs = { '~/', '~/Projects' },
-      })
-    end
+			require("true-zen").setup{
+				modes = {
+					minimalist = {
+						callbacks = {
+							open_pre = function ()
+								vim.opt.showtabline = 0
+							end,
+							close_pos = function ()
+								vim.opt.showtabline = 2
+							end
+						}
+					}
+				},
+				integrations = {
+					twilight = true
+				}
+			}
+		end,
 	},
-  --
-  --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+	{
+		"folke/zen-mode.nvim",
+		lazy = false,
+		opts = {
+			window = {
+				backdrop = 1,
+			},
+			plugins = {
+				twilight = { enabled = false }
+			}
+		}
+	},
+	{
+		"folke/twilight.nvim",
+		lazy = false,
+		opts = {
+		}
+	}
+	--
+	--
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	opts = {
+	-- 		ensure_installed = {
+	-- 			"vim", "lua", "vimdoc",
+	--      "html", "css"
+	-- 		},
+	-- 	},
+	-- },
 }

@@ -12,7 +12,7 @@ function _G.toggle_diagnostics()
     vim.diagnostic.enable()
     print("Diagnostics enabled")
   else
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
     print("Diagnostics disabled")
   end
 end
@@ -32,7 +32,7 @@ map("t","<C-k>"     	,"<cmd> NvimTmuxNavigateUp<CR>"               , { desc="win
 map("n", "<leader>dt" , ':lua toggle_diagnostics()<CR>'						  , { desc="toggle diagnostics" })
 map("n","<Leader>go"	,"<cmd> DiffviewOpen<CR>"                     , { desc="git diff open" })
 map("n","<Leader>gc"	,"<cmd> DiffviewClose<CR>"                    , { desc="git diff close" })
-map("n","<Leader>z" 	,"<cmd> ZenMode<CR>"                          , { desc="enter zen mode" })
+map("n","<Leader>z" 	,"<cmd> TZAtaraxis <CR>"                      , { desc="enter zen mode" })
 map("n","<C-p>"     	,"<cmd> lua vim.diagnostic.goto_prev() <CR>"  , { desc="prev diagnostic" })
 map("n","<C-n>"     	,"<cmd> lua vim.diagnostic.goto_next() <CR>"  , { desc="next diagnostic" })
 map("n","<M-n>"     	,"<cmd> NvimTreeToggle <CR>"                  , { desc="toggle nvimtree" })
