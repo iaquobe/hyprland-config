@@ -98,19 +98,31 @@ return {
 		config = function()
 			require("true-zen").setup{
 				modes = {
+					ataraxis = {
+						callbacks = {
+							open_pos = function ()
+								vim.opt.showtabline = 0
+								vim.diagnostic.enable(false)
+							end,
+							close_pos = function ()
+								vim.opt.showtabline = 1
+							end
+						}
+					},
 					minimalist = {
 						callbacks = {
-							open_pre = function ()
+							open_pos = function ()
 								vim.opt.showtabline = 0
 							end,
 							close_pos = function ()
-								vim.opt.showtabline = 2
+								vim.opt.showtabline = 1
 							end
 						}
 					}
 				},
 				integrations = {
-					twilight = true
+					twilight = true,
+					tmux = true
 				}
 			}
 		end,
@@ -123,7 +135,7 @@ return {
 				backdrop = 1,
 			},
 			plugins = {
-				twilight = { enabled = false }
+				twilight = { enabled = false },
 			}
 		}
 	},
