@@ -99,6 +99,9 @@ return {
 			require("true-zen").setup{
 				modes = {
 					ataraxis = {
+						minimum_writing_area = {
+							width = 90,
+						},
 						callbacks = {
 							open_pos = function ()
 								vim.opt.showtabline = 0
