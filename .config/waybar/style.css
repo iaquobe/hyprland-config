@@ -59,11 +59,13 @@ window#waybar > box {
 
 #workspaces button.focused {
   border-bottom: 2px solid @green;
+	border-radius: 0 0 5px 5px;
 	color: @foreground-darker;
 }
 
 #workspaces button.urgent {
   border-bottom: 2px solid @yellow;
+	border-radius: 0 0 5px 5px;
 	color: @red;
 }
 
