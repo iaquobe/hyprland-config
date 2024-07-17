@@ -41,3 +41,8 @@ lspconfig.texlab.setup{
 		},
 	},
 }
+
+lspconfig.ltex.setup{
+	on_attach = on_attach,
+	capabilities = capabilities,
+}

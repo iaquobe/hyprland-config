@@ -1,0 +1,17 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+text/plain=open-in-vim.desktop
+text/x-yaml=open-in-vim.desktop
+application/json=open-in-vim.desktop
+text/*=open-in-vim.desktop
+
+[Added Associations]
+video/mp4=vlc.desktop;mpv.desktop;org.gnome.Totem.desktop;
+text/calendar=org.gnome.Calendar.desktop;
+video/quicktime=mpv.desktop;
+image/png=sxiv.desktop;

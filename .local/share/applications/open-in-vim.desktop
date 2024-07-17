@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Open in Vim
+Exec=/home/yourusername/open_in_vim.sh %u
+Terminal=false
+Type=Application
+MimeType=text/*;
