@@ -1,2 +1,3 @@
 
-@theme "/usr/share/rofi/themes/gruvbox-light.rasi"
+@theme "~/.config/rofi/themes/gruvbox-material-light.rasi"
+
