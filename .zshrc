@@ -58,6 +58,15 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+chpwd() {
+    # Prevent infinite loop by checking if inside chpwd
+    if [[ -z "$INSIDE_CHPWD" ]]; then
+        INSIDE_CHPWD=1
+        lsd 
+        unset INSIDE_CHPWD
+    fi
+}
+
 # Aliases
 alias ls='lsd'
 alias vim='nvim'
