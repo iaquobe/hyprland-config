@@ -17,6 +17,20 @@ function _G.toggle_diagnostics()
   end
 end
 
+local cmp = require "cmp"
+local cmp_enabled = true
+
+function ToggleCmp()
+  if cmp_enabled then
+    vim.diagnostic.enable(false)
+    cmp.setup({ enabled = false })
+  else
+    vim.diagnostic.enable()
+    cmp.setup({ enabled = true })
+  end
+  cmp_enabled = not cmp_enabled
+end
+
 local map = vim.keymap.set
 
 -- navigation with tmux
@@ -29,7 +43,7 @@ map("t", "<C-l>"    	,"<cmd> NvimTmuxNavigateRight<CR>"            , { desc="win
 map("t","<C-j>"     	,"<cmd> NvimTmuxNavigateDown<CR>"             , { desc="window down" })
 map("t","<C-k>"     	,"<cmd> NvimTmuxNavigateUp<CR>"               , { desc="window up" })
 
-map("n", "<leader>dt" , ':lua toggle_diagnostics()<CR>'						  , { desc="toggle diagnostics" })
+map("n","<leader>dt"	, ':lua ToggleCmp()<CR>'												, { desc="toggle diagnostics" })
 map("n","<Leader>go"	,"<cmd> DiffviewOpen<CR>"                     , { desc="git diff open" })
 map("n","<Leader>gc"	,"<cmd> DiffviewClose<CR>"                    , { desc="git diff close" })
 map("n","<Leader>z" 	,"<cmd> TZAtaraxis <CR>"                      , { desc="enter zen mode" })
