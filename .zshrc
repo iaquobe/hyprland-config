@@ -1,5 +1,7 @@
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+LS_COLORS="$LS_COLORS:ow=0;34;0"
+export ZINIT_NO_AUTOBUNDLE=1
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -16,21 +18,27 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light nullxception/roundy
+zinit light metaory/zsh-roundy-prompt
 
 # Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
+#zinit snippet OMZP::git
+#zinit snippet OMZP::sudo
 
 # Load completions
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
+
+ROUNDY_TEXC_ICON="󱑀"
+ROUNDY_COLORS_BG_TEXC=green
+ROUNDY_COLORS_FG_TEXC=0
+ROUNDY_COLORS_BG_USR=blue
+ROUNDY_COLORS_FG_USR=0
+ROUNDY_COLORS_BG_DIR=0
+ROUNDY_COLORS_FG_DIR=15
+ROUNDY_COLORS_BG_GITINFO=green
+ROUNDY_COLORS_FG_GITINFO=0
 
 # Keybindings
 bindkey -e
