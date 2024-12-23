@@ -1,35 +1,35 @@
 require "nvchad.mappings"
 
 -- Create a global variable to keep track of diagnostics state
-if vim.g.diagnostics_active == nil then
-  vim.g.diagnostics_active = true
-end
+-- if vim.g.diagnostics_active == nil then
+--   vim.g.diagnostics_active = true
+-- end
 
 -- Function to toggle diagnostics
-function _G.toggle_diagnostics()
-  vim.g.diagnostics_active = not vim.g.diagnostics_active
-  if vim.g.diagnostics_active then
-    vim.diagnostic.enable()
-    print("Diagnostics enabled")
-  else
-    vim.diagnostic.enable(false)
-    print("Diagnostics disabled")
-  end
-end
-
-local cmp = require "cmp"
-local cmp_enabled = true
-
-function ToggleCmp()
-  if cmp_enabled then
-    vim.diagnostic.enable(false)
-    cmp.setup({ enabled = false })
-  else
-    vim.diagnostic.enable()
-    cmp.setup({ enabled = true })
-  end
-  cmp_enabled = not cmp_enabled
-end
+-- function _G.toggle_diagnostics()
+--   vim.g.diagnostics_active = not vim.g.diagnostics_active
+--   if vim.g.diagnostics_active then
+--     vim.diagnostic.enable()
+--     print("Diagnostics enabled")
+--   else
+--     vim.diagnostic.enable(false)
+--     print("Diagnostics disabled")
+--   end
+-- end
+--
+-- local cmp = require "cmp"
+-- local cmp_enabled = true
+--
+-- function ToggleCmp()
+--   if cmp_enabled then
+--     vim.diagnostic.enable(false)
+--     cmp.setup({ enabled = false })
+--   else
+--     vim.diagnostic.enable()
+--     cmp.setup({ enabled = true })
+--   end
+--   cmp_enabled = not cmp_enabled
+-- end
 
 local map = vim.keymap.set
 

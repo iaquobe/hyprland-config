@@ -2,5 +2,5 @@
 
 hyprctl getoption input:kb_options \
 	|  grep caps:swapescape \
-	&& hyprctl keyword input:kb_options "" \
+	&& hyprctl keyword input:kb_options "none" \
 	|| hyprctl keyword input:kb_options "caps:swapescape" 

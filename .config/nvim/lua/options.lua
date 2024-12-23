@@ -15,6 +15,15 @@ autocmd("BufEnter", {
 	command = "startinsert"
 })
 
+autocmd({"BufReadPost", "FileReadPost"}, {
+  pattern = "*",
+  callback = function()
+    vim.schedule(function()
+      vim.cmd("normal! zR")
+    end)
+  end,
+})
+
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
@@ -22,6 +31,9 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.opt.shellcmdflag = "-ic"
+vim.opt.formatoptions:remove({ "r", "o" })
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.g.loaded_python3_provider = nil
 

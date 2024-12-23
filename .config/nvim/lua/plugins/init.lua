@@ -1,11 +1,12 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
+	{
+		"stevearc/conform.nvim",
+		-- event = 'BufWritePre', -- uncomment for format on save
+		config = function()
+			require "configs.conform"
+		end,
+	},
+
 
 	{
 		"alexghergh/nvim-tmux-navigation",
@@ -38,7 +39,9 @@ return {
 				"css-lsp" ,
 				"prettier",
 				"pyright",
-				"debugpy"
+				"debugpy",
+				"clangd",
+				"rust-analyzer"
 			},
 		},
 	},
@@ -92,62 +95,62 @@ return {
 		end,
 	},
 
-	{
-		"iaquobe/true-zen.nvim",
-		lazy = false,
-		config = function()
-			require("true-zen").setup{
-				modes = {
-					ataraxis = {
-						minimum_writing_area = {
-							width = 90,
-						},
-						callbacks = {
-							open_pos = function ()
-								vim.opt.showtabline = 0
-								vim.diagnostic.enable(false)
-							end,
-							close_pos = function ()
-								vim.opt.showtabline = 1
-							end
-						}
-					},
-					minimalist = {
-						callbacks = {
-							open_pos = function ()
-								vim.opt.showtabline = 0
-							end,
-							close_pos = function ()
-								vim.opt.showtabline = 1
-							end
-						}
-					}
-				},
-				integrations = {
-					twilight = true,
-					tmux = true
-				}
-			}
-		end,
-	},
-	{
-		"folke/zen-mode.nvim",
-		lazy = false,
-		opts = {
-			window = {
-				backdrop = 1,
-			},
-			plugins = {
-				twilight = { enabled = false },
-			}
-		}
-	},
-	{
-		"folke/twilight.nvim",
-		lazy = false,
-		opts = {
-		}
-	},
+	-- {
+	-- 	"iaquobe/true-zen.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("true-zen").setup{
+	-- 			modes = {
+	-- 				ataraxis = {
+	-- 					minimum_writing_area = {
+	-- 						width = 90,
+	-- 					},
+	-- 					callbacks = {
+	-- 						open_pos = function ()
+	-- 							vim.opt.showtabline = 0
+	-- 							vim.diagnostic.enable(false)
+	-- 						end,
+	-- 						close_pos = function ()
+	-- 							vim.opt.showtabline = 1
+	-- 						end
+	-- 					}
+	-- 				},
+	-- 				minimalist = {
+	-- 					callbacks = {
+	-- 						open_pos = function ()
+	-- 							vim.opt.showtabline = 0
+	-- 						end,
+	-- 						close_pos = function ()
+	-- 							vim.opt.showtabline = 1
+	-- 						end
+	-- 					}
+	-- 				}
+	-- 			},
+	-- 			integrations = {
+	-- 				twilight = true,
+	-- 				tmux = true
+	-- 			}
+	-- 		}
+	-- 	end,
+	-- },
+	-- {
+	-- 	"folke/zen-mode.nvim",
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 		window = {
+	-- 			backdrop = 1,
+	-- 		},
+	-- 		plugins = {
+	-- 			twilight = { enabled = false },
+	-- 		}
+	-- 	}
+	-- },
+	-- {
+	-- 	"folke/twilight.nvim",
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 	}
+	-- },
 	{
 		'stevearc/oil.nvim',
 		lazy = false,
@@ -172,19 +175,16 @@ return {
 				on_attach = nil,
 			}
 		end,
+	},
+
+	{
+		'nvim-flutter/flutter-tools.nvim',
+		lazy = false,
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim', -- optional for vim.ui.select
+		},
+		config = true,
 	}
 
-
-
-	--
-	--
-	-- {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- 	opts = {
-	-- 		ensure_installed = {
-	-- 			"vim", "lua", "vimdoc",
-	--      "html", "css"
-	-- 		},
-	-- 	},
-	-- },
 }

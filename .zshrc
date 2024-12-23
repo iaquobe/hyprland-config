@@ -2,6 +2,7 @@
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 LS_COLORS="$LS_COLORS:ow=0;34;0"
 export ZINIT_NO_AUTOBUNDLE=1
+export PATH="$PATH:$HOME/scripts/:$HOME/.cargo/bin/"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -76,12 +77,32 @@ chpwd() {
     fi
 }
 
+
+# alias muted='() { "$@" &>/dev/null &; disown }'
+# muted_prog=( zathura sxiv )
+# for prog in $muted_prog
+# do
+# 	alias $prog="muted $prog"
+# done
+
+zathura() {
+	nohup zathura "$@" > /dev/null 2>&1 & disown
+}
+
+sxiv() {
+	nohup sxiv "$@" > /dev/null 2>&1 & disown
+}
+
 # Aliases
 alias ls='lsd'
 alias vim='nvim'
+alias z='zathura'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 # eval "$(zoxide init --cmd cd zsh)"
 
+# z() { zathura "$@" &>/dev/null &; disown }
+# compdef _zathura z
 
+export PATH="/home/iaquobe/.pixi/bin:$PATH"

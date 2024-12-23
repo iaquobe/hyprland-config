@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls"}
+local servers = { "html", "cssls", "clangd"}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -15,12 +15,25 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- typescript
-lspconfig.tsserver.setup {
-	on_attach = on_attach,
+lspconfig.rust_analyzer.setup {
 	on_init = on_init,
+	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			completion = {
+				snippets = false,  -- Disable snippets if you don't need them
+			},
+		},
+	},
 }
+
+-- typescript
+-- lspconfig.tsserver.setup {
+-- 	on_attach = on_attach,
+-- 	on_init = on_init,
+-- 	capabilities = capabilities,
+-- }
 
 lspconfig.pyright.setup({
 	on_init = on_init,
@@ -46,3 +59,4 @@ lspconfig.ltex.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
+

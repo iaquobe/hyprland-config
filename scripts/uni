@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat ~/.uni | nmcli c u Uni\ Leipzig --ask 
