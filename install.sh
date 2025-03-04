@@ -11,4 +11,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 
 # install nvchad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim 
-rm -r ~/.config/nvim/
+# rm -r ~/.config/nvim/

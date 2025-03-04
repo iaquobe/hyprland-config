@@ -32,7 +32,7 @@ zinit cdreplay -q
 
 
 ROUNDY_TEXC_ICON="󱑀"
-ROUNDY_COLORS_BG_TEXC=green
+ROUNDY_COLORS_BG_TEXC=2
 ROUNDY_COLORS_FG_TEXC=0
 ROUNDY_COLORS_BG_USR=blue
 ROUNDY_COLORS_FG_USR=0
@@ -106,3 +106,6 @@ eval "$(fzf --zsh)"
 # compdef _zathura z
 
 export PATH="/home/iaquobe/.pixi/bin:$PATH"
+export SUDO_EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"
