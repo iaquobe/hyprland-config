@@ -19,11 +19,21 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light metaory/zsh-roundy-prompt
+zinit light nullxception/roundy
 
 # Add in snippets
 #zinit snippet OMZP::git
 #zinit snippet OMZP::sudo
+
+ROUNDY_TEXC_ICON="󱑀"
+ROUNDY_COLORS_BG_TEXC=2
+ROUNDY_COLORS_FG_TEXC=0
+ROUNDY_COLORS_BG_USR=green
+ROUNDY_COLORS_FG_USR=0
+ROUNDY_COLORS_BG_DIR=0
+ROUNDY_COLORS_FG_DIR=15
+ROUNDY_COLORS_BG_GITINFO=green
+ROUNDY_COLORS_FG_GITINFO=0
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -31,15 +41,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 
-ROUNDY_TEXC_ICON="󱑀"
-ROUNDY_COLORS_BG_TEXC=2
-ROUNDY_COLORS_FG_TEXC=0
-ROUNDY_COLORS_BG_USR=blue
-ROUNDY_COLORS_FG_USR=0
-ROUNDY_COLORS_BG_DIR=0
-ROUNDY_COLORS_FG_DIR=15
-ROUNDY_COLORS_BG_GITINFO=green
-ROUNDY_COLORS_FG_GITINFO=0
+
 
 # Keybindings
 bindkey -e
