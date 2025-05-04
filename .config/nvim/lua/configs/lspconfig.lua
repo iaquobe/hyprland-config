@@ -49,6 +49,16 @@ lspconfig.texlab.setup{
 	settings = {
 		texlab = {
 			build = {
+				executable = "latexmk",
+        args = {
+          "-pdf",          -- Generate PDF
+          "-interaction=nonstopmode", -- Keep going even if errors
+          "-synctex=1",    -- SyncTeX for forward/inverse search
+          "-shell-escape", -- Allow external commands (optional)
+          "-bibtex",       -- Run BibTeX
+          "%f"             -- Input file
+        },
+        forwardSearchAfter = true,
 				onSave = true,
 			},
 		},

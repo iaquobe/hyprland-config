@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export GRIM_DEFAULT_DIR="/home/iaquobe/screenshots/"
-slurp | grim -g -
+slurp -w 0 -b \#7c6f6410 | grim -g -

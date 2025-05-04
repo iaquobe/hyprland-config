@@ -57,7 +57,78 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 	},
+	{
+		"quarto-dev/quarto-nvim",
+		ft = {"quarto", "markdown"},
+		dependencies = {
+			"jmbuhr/otter.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			local runner = require("quarto.runner")
+			vim.keymap.set("n", "<localleader>rc", runner.run_cell,  { desc = "run cell", silent = true })
+			vim.keymap.set("n", "<localleader>ra", runner.run_above, { desc = "run cell and above", silent = true })
+			vim.keymap.set("n", "<localleader>rA", runner.run_all,   { desc = "run all cells", silent = true })
+			vim.keymap.set("n", "<localleader>rl", runner.run_line,  { desc = "run line", silent = true })
+			vim.keymap.set("v", "<localleader>r",  runner.run_range, { desc = "run visual range", silent = true })
+			vim.keymap.set("n", "<localleader>RA", function()
+				runner.run_all(true)
+			end, { desc = "run all cells of all languages", silent = true })
+		end,
+		lazy = false,
+	},
+	{
+		"GCBallesteros/jupytext.nvim",
+		config = function()
+			require("jupytext").setup({
+					style = "markdown",
+					output_extension = "md",
+					force_ft = "markdown"})
+		end,
+		lazy = false,
+	},
+	{
+		"benlubas/molten-nvim",
+		dependencies = {
+			"quarto-dev/quarto-nvim",
+			"GCBallesteros/jupytext.nvim",
+		},
+		version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+		build = ":UpdateRemotePlugins",
+		lazy = false,
+		init = function()
+			vim.g.molten_output_win_max_height = 12
+			vim.g.molten_auto_open_output = true
+			vim.g.molten_image_location	 = "float"
+			vim.g.molten_image_provider = "image.nvim"
+			vim.g.molten_wrap_output = true
+			vim.g.molten_virt_text_output = true
+			vim.g.molten_virt_lines_off_by_1 = true
 
+			vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+			vim.keymap.set("n", "<localleader>os", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
+			vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+			vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+			vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
+			vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+			vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
+		end,
+	},
+	{
+		"3rd/image.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("image").setup({
+				-- optional configuration
+				backend = "kitty", -- or "wezterm", or "ueberzug"
+				integrations = {
+					markdown = {
+						enabled = true,
+					},
+				},
+			})
+		end,
+	},
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
@@ -66,14 +137,14 @@ return {
 			local dapui = require("dapui")
 			dapui.setup()
 			dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
 
 		end,
 	},
@@ -94,63 +165,6 @@ return {
 			require"dap-python".setup(path)
 		end,
 	},
-
-	-- {
-	-- 	"iaquobe/true-zen.nvim",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		require("true-zen").setup{
-	-- 			modes = {
-	-- 				ataraxis = {
-	-- 					minimum_writing_area = {
-	-- 						width = 90,
-	-- 					},
-	-- 					callbacks = {
-	-- 						open_pos = function ()
-	-- 							vim.opt.showtabline = 0
-	-- 							vim.diagnostic.enable(false)
-	-- 						end,
-	-- 						close_pos = function ()
-	-- 							vim.opt.showtabline = 1
-	-- 						end
-	-- 					}
-	-- 				},
-	-- 				minimalist = {
-	-- 					callbacks = {
-	-- 						open_pos = function ()
-	-- 							vim.opt.showtabline = 0
-	-- 						end,
-	-- 						close_pos = function ()
-	-- 							vim.opt.showtabline = 1
-	-- 						end
-	-- 					}
-	-- 				}
-	-- 			},
-	-- 			integrations = {
-	-- 				twilight = true,
-	-- 				tmux = true
-	-- 			}
-	-- 		}
-	-- 	end,
-	-- },
-	-- {
-	-- 	"folke/zen-mode.nvim",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		window = {
-	-- 			backdrop = 1,
-	-- 		},
-	-- 		plugins = {
-	-- 			twilight = { enabled = false },
-	-- 		}
-	-- 	}
-	-- },
-	-- {
-	-- 	"folke/twilight.nvim",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 	}
-	-- },
 	{
 		'stevearc/oil.nvim',
 		lazy = false,

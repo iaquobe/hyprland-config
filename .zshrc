@@ -2,7 +2,7 @@
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 LS_COLORS="$LS_COLORS:ow=0;34;0"
 export ZINIT_NO_AUTOBUNDLE=1
-export PATH="$PATH:$HOME/scripts/:$HOME/.cargo/bin/"
+export PATH="$PATH:$HOME/scripts/:$HOME/.local/bin"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -12,6 +12,7 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 # Source/Load zinit
+date 
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
@@ -20,6 +21,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light nullxception/roundy
+date 
 
 # Add in snippets
 #zinit snippet OMZP::git
@@ -96,6 +98,7 @@ sxiv() {
 }
 
 # Aliases
+alias rm=trash
 alias ls='lsd'
 alias vim='nvim'
 alias z='zathura'
@@ -107,7 +110,9 @@ eval "$(fzf --zsh)"
 # z() { zathura "$@" &>/dev/null &; disown }
 # compdef _zathura z
 
-export PATH="/home/iaquobe/.pixi/bin:$PATH"
+export PATH="$PATH:/home/iaquobe/.local/bin"
+export PATH="$PATH:/home/iaquobe/.pixi/bin"
 export SUDO_EDITOR="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
+export PYTHON_BASIC_REPL=1
