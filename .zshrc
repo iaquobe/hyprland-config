@@ -102,6 +102,7 @@ alias rm=trash
 alias ls='lsd'
 alias vim='nvim'
 alias z='zathura'
+alias cat='bat'
 
 # Shell integrations
 eval "$(fzf --zsh)"

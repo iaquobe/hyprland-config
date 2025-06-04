@@ -105,13 +105,13 @@ return {
 			vim.g.molten_virt_text_output = true
 			vim.g.molten_virt_lines_off_by_1 = true
 
-			vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
-			vim.keymap.set("n", "<localleader>os", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
-			vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
-			vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
-			vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
-			vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
-			vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
+			vim.keymap.set("n", "<leader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+			vim.keymap.set("n", "<leader>os", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
+			vim.keymap.set("n", "<leader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+			vim.keymap.set("v", "<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+			vim.keymap.set("n", "<leader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
+			vim.keymap.set("n", "<leader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
+			vim.keymap.set("n", "<leader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
 		end,
 	},
 	{
@@ -172,7 +172,69 @@ return {
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		lazy = true,
+		config = function()
+			require('nvim-treesitter.configs').setup({
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
+							["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
+						},
+					},
+				}})
+		end,
+	},
+	{
 
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
+		event = { 'BufReadPost', 'BufNewFile' },
+		dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
+		opts = {
+			ensure_installed = {
+				'lua',
+				'python',
+				'bash',
+				'json',
+				'yaml',
+				'html',
+				'css',
+				'javascript',
+				'tsx',
+				'markdown',
+				'markdown_inline',
+				'vim',
+				'query',
+			},
+			highlight = { enable = true },
+			indent = { enable = true },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = '<C-Space>',
+					node_incremental = '<C-Space>',
+					node_decremental = '<BS>',
+				},
+			},
+		},
+		config = function(_, opts)
+			require('nvim-treesitter.configs').setup(opts)
+
+		end,
+	},
+	{
+		'nvim-treesitter/playground',
+		cmd = 'TSPlaygroundToggle',
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		config = function()
+			vim.cmd("TSPlaygroundToggle")
+		end
+	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		lazy = false,

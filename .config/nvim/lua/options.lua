@@ -7,7 +7,7 @@ require "nvchad.options"
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWritePost", {
   pattern = "*.md",
-  command = "silent !pandoc % -o %:r.pdf &",
+  command = "silent !pandoc % -o %:r.pdf --template eisvogel --listings &",
 })
 
 autocmd("BufEnter", {
