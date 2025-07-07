@@ -5,9 +5,25 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 local autocmd = vim.api.nvim_create_autocmd
+
 autocmd("BufWritePost", {
   pattern = "*.md",
-  command = "silent !pandoc % -o %:r.pdf --template eisvogel --listings &",
+  callback = function(args)
+    local type = vim.fn.fnamemodify(args.file, ":t")  -- extract file name
+    local filename = vim.fn.fnamemodify(args.file, ":p")  -- extract file name
+    local basename = vim.fn.fnamemodify(args.file, ":p:r")  -- strip extension
+    local cmd = ""
+
+    if type == "slides.md" then
+      -- Use beamer for slides.md
+      cmd = string.format("pandoc %s -t beamer -V theme:metropolis --highlight-style=zenburn --template zenburn --slide-level 2 -o %s.pdf --citeproc &", filename, basename)
+    else
+      -- Use eisvogel for other Markdown files
+      cmd = string.format("pandoc %s -o %s.pdf --template eisvogel --listings --citeproc &", filename, basename)
+    end
+
+    vim.fn.jobstart(cmd, { detach = true })
+  end,
 })
 
 autocmd("BufEnter", {
@@ -34,6 +50,7 @@ vim.opt.shellcmdflag = "-ic"
 vim.opt.formatoptions:remove({ "r", "o" })
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99
 
 vim.g.loaded_python3_provider = nil
 

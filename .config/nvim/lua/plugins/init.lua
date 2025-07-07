@@ -41,7 +41,8 @@ return {
 				"pyright",
 				"debugpy",
 				"clangd",
-				"rust-analyzer"
+				"rust-analyzer",
+				"tiny",
 			},
 		},
 	},

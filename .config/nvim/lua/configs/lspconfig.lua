@@ -28,6 +28,14 @@ lspconfig.rust_analyzer.setup {
 	},
 }
 
+lspconfig.tinymist.setup {
+    settings = {
+        formatterMode = "typstyle",
+        exportPdf = "onType",
+        semanticTokens = "disable"
+    }
+}
+
 -- typescript
 -- lspconfig.tsserver.setup {
 -- 	on_attach = on_attach,
@@ -68,5 +76,6 @@ lspconfig.texlab.setup{
 lspconfig.ltex.setup{
 	on_attach = on_attach,
 	capabilities = capabilities,
+	-- filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "html", "xhtml", "mail", "text", "typst" },
 }
 
