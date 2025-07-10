@@ -12,7 +12,7 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 # Source/Load zinit
-date 
+# date +"%T.%N"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
@@ -20,8 +20,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light nullxception/roundy
-date 
+# date +"%T.%N"
+# zinit light nullxception/roundy
+# date +"%T.%N"
+
+eval "$(starship init zsh)"
 
 # Add in snippets
 #zinit snippet OMZP::git
@@ -41,6 +44,7 @@ ROUNDY_COLORS_FG_GITINFO=0
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
+
 
 
 
