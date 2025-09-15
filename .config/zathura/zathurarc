@@ -2,7 +2,7 @@ set font "monospace normal 16"
 # set statusbar-basename true
 
 # Allow recolor
-set recolor 'true'
+set recolor 'false'
 
 # Don't allow original hue when recoloring
 set recolor-keephue 'true'

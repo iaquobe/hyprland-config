@@ -28,10 +28,10 @@ lspconfig.rust_analyzer.setup {
 	},
 }
 
-lspconfig.tinymist.setup {
+require("lspconfig")["tinymist"].setup {
     settings = {
         formatterMode = "typstyle",
-        exportPdf = "onType",
+        exportPdf = "onSave",
         semanticTokens = "disable"
     }
 }
