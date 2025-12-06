@@ -31,14 +31,14 @@ autocmd("BufEnter", {
 	command = "startinsert"
 })
 
-autocmd({"BufReadPost", "FileReadPost"}, {
-  pattern = "*",
-  callback = function()
-    vim.schedule(function()
-      vim.cmd("normal! zR")
-    end)
-  end,
-})
+-- autocmd({"BufReadPost", "FileReadPost"}, {
+--   pattern = "*",
+--   callback = function()
+--     vim.schedule(function()
+--       vim.cmd("normal! zR")
+--     end)
+--   end,
+-- })
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.opt.colorcolumn = "80"

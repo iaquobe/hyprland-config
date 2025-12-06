@@ -1,24 +1,12 @@
 -- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd"}
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
+require("nvchad.configs.lspconfig").defaults()
 
-lspconfig.rust_analyzer.setup {
-	on_init = on_init,
-	on_attach = on_attach,
-	capabilities = capabilities,
+
+local util = require "lspconfig.util"
+
+vim.lsp.config("rust_analyzer", {
 	settings = {
 		["rust-analyzer"] = {
 			completion = {
@@ -26,34 +14,22 @@ lspconfig.rust_analyzer.setup {
 			},
 		},
 	},
-}
+})
 
-require("lspconfig")["tinymist"].setup {
+vim.lsp.config("tinymist", {
     settings = {
         formatterMode = "typstyle",
         exportPdf = "onSave",
         semanticTokens = "disable"
     }
-}
-
--- typescript
--- lspconfig.tsserver.setup {
--- 	on_attach = on_attach,
--- 	on_init = on_init,
--- 	capabilities = capabilities,
--- }
-
-lspconfig.pyright.setup({
-	on_init = on_init,
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = {"python"},
-  root_dir = lspconfig.util.root_pattern(".git", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyproject.toml"),
 })
 
-lspconfig.texlab.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
+-- vim.lsp.config("pyright",{
+-- 	filetypes = {"python"},
+--   root_dir = util.root_pattern(".git", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyproject.toml"),
+-- })
+
+vim.lsp.config("texlab", {
 	settings = {
 		texlab = {
 			build = {
@@ -71,11 +47,13 @@ lspconfig.texlab.setup{
 			},
 		},
 	},
-}
+})
 
-lspconfig.ltex.setup{
-	on_attach = on_attach,
-	capabilities = capabilities,
+vim.lsp.config("ltex", {
 	-- filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "html", "xhtml", "mail", "text", "typst" },
-}
+})
+
+local servers = { "html", "css", "pyright", "texlab", "texlab", "tinymist", "rust_analyzer", "clangd", "r_language_server"}
+vim.lsp.enable(servers)
+
 

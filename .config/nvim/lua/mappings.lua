@@ -53,16 +53,8 @@ map("n","<M-n>"     	,"<cmd> NvimTreeToggle <CR>"                  , { desc="tog
 map("n","<Leader>fj"	,"<cmd> Telescope jumplist <CR>"              , { desc="Find jumps"})
 map("n","<Leader>fd"	,"<cmd> Telescope lsp_document_symbols <CR>"  , { desc="telescope lsp symbols document"})
 map("n","<Leader>fp"	,"<cmd> Telescope lsp_dynamic_workspace_symbols <CR>" , { desc="telescope lsp symbols workspace"})
-map("n", "<leader>b"	,
-  function()
-    require("nvchad.tabufline").prev()
-  end,
-  {desc="Goto next buffer"})
-map("n", "<leader>n",
-  function()
-    require("nvchad.tabufline").next()
-  end,
-  {desc="Goto prev buffer"})
+map("n", "<leader>b"	, function() require("nvchad.tabufline").prev() end, {desc="Goto next buffer"})
+map("n", "<leader>n", function() require("nvchad.tabufline").next() end, {desc="Goto prev buffer"})
 
 map("v", ">", ">gv", {desc="indent"})
 map("v", "<", "<gv", {desc="indent"})
@@ -79,3 +71,7 @@ map("n", "<leader>dc", '<cmd> DapContinue <CR>', { desc="debug continue"})
 map("n", "<leader>ds", '<cmd> DapStepInto <CR>', { desc="debug step into"})
 map("n", "<leader>dn", '<cmd> DapStepOver <CR>', { desc="debug step over"})
 
+
+map("n", "<leader>ca", '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = "LSP: Code Action" })
+
+map("n", "<leader>mi", '<cmd>MoltenImagePopup<CR>', { desc = "Molten Image Popup" })
