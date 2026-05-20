@@ -1,3 +1,7 @@
 
 @theme "~/.config/rofi/themes/gruvbox-material-light.rasi"
 
+configuration { 
+	window-thumbnail: true;
+	window-format: "{c} {t}";
+}

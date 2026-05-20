@@ -43,7 +43,7 @@ window {
     anchor:   center;
     border-radius: 10px;
     height: 560px;
-    width: 600px;
+    width: 1400px;
 
     background-color: @transparent;
     spacing: 0;
@@ -126,7 +126,7 @@ element.alternate.normal {
 }
 
 element-text, element-icon {
-    size: 3ch;
+    size: 1ch;
     margin: 0 10 0 0;
     vertical-align: 0.5;
     background-color: inherit;

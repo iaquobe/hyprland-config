@@ -50,7 +50,7 @@ vim.lsp.config("texlab", {
 })
 
 vim.lsp.config("ltex", {
-	-- filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "html", "xhtml", "mail", "text", "typst" },
+	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "quarto", "rmd", "context", "html", "xhtml", "mail", "text", "typst" },
 })
 
 local servers = { "html", "css", "pyright", "texlab", "texlab", "tinymist", "rust_analyzer", "clangd", "r_language_server"}
