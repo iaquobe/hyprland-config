@@ -10,13 +10,23 @@
 @define-color bg-selected-darker	#b57614;
 @define-color shadow							rgba(28, 28, 28, 0.6);
 
-.control-center .notification-row:focus,
-.control-center .notification-row:hover {
+* {
+	color: @text-color;
 	opacity: 1;
-	background: @noti-bg;
+}
+
+/* .control-center .notification-row:focus, */
+/* .control-center .notification-row:hover { */
+/* 	background: @noti-bg; */
+/* } */
+
+.control-center,
+.control-center-list {
+	background: @cc-bg;
 }
 
 .notification-row {
+	background: transparent;
 	outline: none;
 	margin: 20px;
 	padding: 0;
@@ -24,7 +34,7 @@
 
 .notification {
   box-shadow: 0 0 2px 0 @shadow;
-	background: transparent;
+	background: @cc-bg;
 	margin: 0px;
 	border-radius: 5px;
 }
@@ -90,11 +100,7 @@
 }
 
 .control-center-list {
-	background: transparent
-}
-
-.control-center-list-placeholder {
-	opacity: .5
+	opacity: 1;
 }
 
 .floating-notifications {
@@ -105,8 +111,13 @@
 	background: alpha(black, 0.1)
 }
 
+.notification-group:focus {
+	background: @noti-bg;
+	border-radius: 5px;
+  box-shadow: 5px @shadow;
+}
+
 .widget-title {
-	color: @text-color;
 	background: @noti-bg;
 	padding: 5px 10px;
 	margin: 10px 10px 5px 10px;
@@ -121,7 +132,6 @@
 	margin: 5px 10px 10px 10px;
 	border-radius: 5px;
 	font-size: large;
-	color: @text-color;
   box-shadow: 0 0 3px 0 @shadow;
 }
 
