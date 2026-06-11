@@ -9,6 +9,7 @@ text/plain=open-in-vim.desktop
 text/x-yaml=open-in-vim.desktop
 application/json=open-in-vim.desktop
 text/*=open-in-vim.desktop
+x-scheme-handler/mailto=net.thunderbird.Thunderbird.desktop
 
 [Added Associations]
 video/mp4=vlc.desktop;mpv.desktop;org.gnome.Totem.desktop;
