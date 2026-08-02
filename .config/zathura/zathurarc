@@ -66,10 +66,10 @@ set recolor-darkcolor '#654735'
 set render-loading-fg '#654735'
 set render-loading-bg '#f5edca'
 
-# Index mode
-set index-fg '#654735'
-set index-bg '#f5edca'
-
-# Selected element in index mode
-set index-active-fg '#f5edca'
-set index-active-bg '#654735'
+# # Index mode
+# set index-fg '#654735'
+# set index-bg '#f5edca'
+#
+# # Selected element in index mode
+# set index-active-fg '#f5edca'
+# set index-active-bg '#654735'

@@ -53,6 +53,13 @@ return {
 			require "configs.lspconfig"
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = false,
+		opts = {
+		}
+	},
 
 	{
 		"mfussenegger/nvim-dap",

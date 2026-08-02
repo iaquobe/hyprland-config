@@ -50,6 +50,7 @@ map("n","<Leader>z" 	,"<cmd> TZAtaraxis <CR>"                      , { desc="ent
 map("n","<C-p>"     	,"<cmd> lua vim.diagnostic.goto_prev() <CR>"  , { desc="prev diagnostic" })
 map("n","<C-n>"     	,"<cmd> lua vim.diagnostic.goto_next() <CR>"  , { desc="next diagnostic" })
 map("n","<M-n>"     	,"<cmd> NvimTreeToggle <CR>"                  , { desc="toggle nvimtree" })
+map("n","<Leader>ft"	,"<cmd>TodoTelescope <CR>"                    , { desc="Search Todos"})
 map("n","<Leader>fj"	,"<cmd> Telescope jumplist <CR>"              , { desc="Find jumps"})
 map("n","<Leader>fd"	,"<cmd> Telescope lsp_document_symbols <CR>"  , { desc="telescope lsp symbols document"})
 map("n","<Leader>fp"	,"<cmd> Telescope lsp_dynamic_workspace_symbols <CR>" , { desc="telescope lsp symbols workspace"})

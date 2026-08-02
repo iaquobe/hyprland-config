@@ -1,0 +1,6 @@
+#!/bin/bash
+
+curl $1 \
+	| grep '<span class="time secondaryText">' -A3 \
+	| grep "[0-9]*:[0-9]*" \
+	| awk -F: '{sum += $1*60 + $2} END {printf "%02d:%02d\n", int(sum/60), sum%60}'

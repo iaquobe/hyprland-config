@@ -1,0 +1,52 @@
+[settings]
+default-library = papers
+picktool = papis
+
+[papers]
+dir = /home/iaquobe/Library/papers
+opentool = xdg-open
+editor = /usr/bin/nvim
+use-git = False
+notes-name = notes.typ
+database-backend = papis
+bibtex-unicode = False
+ref-format = {doc[title]:.15} {doc[author]:.6} {doc[year]}
+multiple-authors-format = {au[family]}, {au[given]}
+citations-file-name = citations.yaml
+
+[books]
+dir = /home/iaquobe/Library/books
+opentool = xdg-open
+editor = /usr/bin/nvim
+use-git = False
+notes-name = notes.typ
+database-backend = papis
+bibtex-unicode = False
+ref-format = {doc[title]:.15} {doc[author]:.6} {doc[year]}
+multiple-authors-format = {au[family]}, {au[given]}
+citations-file-name = citations.yaml
+
+[work]
+dir = /home/iaquobe/Library/work
+opentool = xdg-open
+editor = /usr/bin/nvim
+use-git = False
+notes-name = notes.typ
+database-backend = papis
+bibtex-unicode = False
+ref-format = {doc[title]:.15} {doc[author]:.6} {doc[year]}
+multiple-authors-format = {au[family]}, {au[given]}
+citations-file-name = citations.yaml
+
+[courses]
+dir = /home/iaquobe/Library/courses
+opentool = xdg-open
+editor = /usr/bin/nvim
+use-git = False
+notes-name = notes.tex
+database-backend = papis
+bibtex-unicode = False
+ref-format = {doc[title]:.15} {doc[author]:.6} {doc[year]}
+multiple-authors-format = {au[family]}, {au[given]}
+citations-file-name = citations.yaml
+

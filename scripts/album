@@ -1,0 +1,156 @@
+#!/bin/bash
+
+################################################################################
+### Argument Parsing 
+################################################################################
+usage="Usage: $0 [-h] [-p] [-s] [-c value] <artist> <album> <url>"
+show_help() {
+    cat <<EOF
+Usage:
+    $0 [OPTIONS] <artist> <album> <url>
+
+Description:
+    Download and add metadata to music
+
+Positional arguments:
+    input       Input file or directory.
+    output      Output file or directory.
+    logfile     Log file to write messages to.
+
+Options:
+    -h          Show this help message and exit.
+    -p          Split by playlist. 
+    -s          Split by video sections.
+    -c IMG_FILE Specify cover image
+
+EOF
+    exit "${1:-0}"
+}
+
+while getopts "hpsc:" opt; do
+	case "$opt" in
+		h)
+			show_help
+			exit 0
+			;;
+		p)
+			echo "Flag -p set"
+			;;
+		s)
+			OUTPUT_FORMAT=(
+				"--split-chapters" 
+				"-o"
+				"output"
+				"-o"
+				"chapter:%(section_number)02d %(section_title)s.%(ext)s"
+			)
+			SPLIT="true"
+			;;
+		c)
+			COVER="$OPTARG"
+			;;
+		\?)
+			echo $usage
+			exit 1
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument."
+			echo $usage
+			exit 1
+			;;
+	esac
+done
+shift $((OPTIND - 1))
+
+if [ "$#" -ne 3 ]; then
+	echo "Error: expected 3 positional arguments."
+	echo $usage
+fi
+
+ARTIST="$1"
+ALBUM="$2"
+URL="$3"
+# ${OUTPUT_FORMAT="$ALBUM"}
+
+################################################################################
+### Create file structure
+################################################################################
+mkdir -p "$ARTIST/$ALBUM"
+cd "$ARTIST/$ALBUM"
+
+################################################################################
+### Download
+################################################################################
+yt-dlp -t mp3 \
+	${COVER:-"--write-thumbnail"} \
+	--split-chapters \
+	"${OUTPUT_FORMAT[@]}" \
+	"$URL" 
+rm output.mp3
+
+################################################################################
+# Process Cover
+################################################################################
+magick ${COVER:-"*.webp"} \
+    -gravity center \
+    -crop "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" +repage \
+    -resize 256x256 \
+    cover.jpg
+rm *webp
+
+################################################################################
+# Add Artist, Album, and Cover
+################################################################################
+id3v2 -a "$ARTIST" \
+	-A "$ALBUM" \
+	-t "$ALBUM" \
+	--APIC "image/jpeg:3::cover.jpg" \
+	*.mp3
+eyeD3 --add-image cover.jpg:FRONT_COVER *.mp3
+
+################################################################################
+# Add Title and numbering
+################################################################################
+if "$SPLIT"; then 
+	ls *mp3 | 
+		sed -e "s/\([0-9]*\) \(.*\)\.mp3/id3v2 -t \"\2\" \"&\"; eyeD3 --track=\1 \"&\"/" | 
+		bash
+fi
+
+# sed -e "s/\([0-9]*\) \(.*\)\.mp3/id3v2 -t \"\2\" \"&\"; eyeD3 --track=\1 \"&\"; mv \"&\" \"\2.mp3\"/"
+
+
+
+
+
+# exit
+#
+# ARTIST="$1"
+# ALBUM="$2"
+# URL="$3"
+# FILE="${ALBUM// /_}"
+#
+# # Create dir structure
+# mkdir -p "${ARTIST// /_}/$FILE"
+# cd "${ARTIST// /_}/$FILE"
+#
+# # Download from youtube as mp3 with cover image
+# yt-dlp -t mp3 \
+# 	--write-thumbnail \
+# 	-o "$FILE" \
+# 	"$URL" 
+#
+# # crop cover image so it centers
+# magick "$FILE.webp" \
+#     -gravity center \
+#     -crop "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" +repage \
+#     -resize 256x256 \
+#     cover.jpg\
+#
+# # add metadata to file
+# id3v2 -a "$ARTIST" \
+# 	-t "$ALBUM" \
+# 	-A "$ALBUM" \
+# 	--APIC "image/jpeg:3::cover.jpg" \
+# 	*.mp3
+# eyeD3 --add-image cover.jpg:FRONT_COVER *.mp3

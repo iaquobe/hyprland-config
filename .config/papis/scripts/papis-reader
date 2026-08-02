@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+# papis-short-help: Send documents to eReader
+
+# papis list $2 --format "cp $PAPIS_LIB_PATH/{doc[papis_id]}/{doc[files][0]} $1/{doc[ref]}.pdf" | bash
+
+META="InfoKey: Title
+InfoValue: {doc[year]}: {doc[title]}
+
+InfoKey: Author
+InfoValue: {doc[author]}"
+
+papis list $2 --format \
+	"pdftk $PAPIS_LIB_PATH/{doc[papis_id]}/{doc[files][0]} update_info <(echo \"$META\") output $1/{doc[ref]}.pdf" | bash

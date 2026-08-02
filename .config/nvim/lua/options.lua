@@ -2,8 +2,13 @@ require "nvchad.options"
 
 -- add yours here!
 
+if vim.g.neovide then
+    -- Put anything you want to happen only in Neovide here
+end
+
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufWritePost", {
@@ -44,6 +49,7 @@ vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
+vim.opt.wrap = false
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.opt.shellcmdflag = "-ic"

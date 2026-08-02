@@ -1,0 +1,44 @@
+documentlist:
+  defaultstyle: multiline
+  marked-icon: '*'
+  multilinestyle:
+    rows:
+    - <red>{doc.html_escape["ref"]}</red>
+    - <bold>{doc.html_escape["title"]}<bold>
+    - <cyan>{doc.html_escape["author"]}</cyan>
+  tablestyle:
+    columns:
+    - content: '{doc.html_escape["ref"]}'
+      header: Ref
+      width: 15
+    - content: '{doc.html_escape["author"]}'
+      header: Author
+      width: 30
+    - content: '{doc.html_escape["year"]}'
+      header: Year
+      width: 4
+    - content: '{doc.html_escape["title"]}'
+      header: Title
+      width: 400
+    cursorrowstyle: black_white
+    headerstyle: underline|bold
+    rowstyle: white_bg
+    separator: " \u2502 "
+keymappings:
+  ' ': mark_selected
+  /: search_mode
+  <key_down>: scroll_down
+  <key_up>: scroll_up
+  '?': help
+  G: jump_to_bottom
+  e: edit
+  gg: jump_to_top
+  j: scroll_down
+  k: scroll_up
+  o: open
+  q: quit
+statusbar:
+  left:
+    default: <black_white> {info["mode_upper"]} <black_white>
+  right:
+    default: <black_white> {info["idx"]} < {info["marked"]} < {info["view"]} < {info["items"]}  <black_white>

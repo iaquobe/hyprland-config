@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+# papis-short-help: compile notes to one pdf
+
+papis run -- sh -c "find -name notes.typ | sed 's|.*|#include \"&\"|' | typst compile - notes.pdf"
+
+# papis run -- find "~+" -name notes.typ | sed "s|.*|#include ${PAPIS_LIB_PATH}/&|" # | typst compile - notes.pdf
