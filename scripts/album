@@ -34,13 +34,17 @@ while getopts "hpsc:" opt; do
 			exit 0
 			;;
 		p)
-			echo "Flag -p set"
+			OUTPUT_FORMAT=(
+				"-o"
+				"%(playlist_index)02d %(title)s.%(ext)s"
+			)
+			SPLIT="true"
 			;;
 		s)
 			OUTPUT_FORMAT=(
 				"--split-chapters" 
 				"-o"
-				"output"
+				"output.%(ext)s"
 				"-o"
 				"chapter:%(section_number)02d %(section_title)s.%(ext)s"
 			)
@@ -70,7 +74,9 @@ fi
 ARTIST="$1"
 ALBUM="$2"
 URL="$3"
-# ${OUTPUT_FORMAT="$ALBUM"}
+if (( ${#OUTPUT_FORMAT[@]} == 0 )); then
+	OUTPUT_FORMAT=("-o" "$ALBUM.%(ext)s")
+fi
 
 ################################################################################
 ### Create file structure
@@ -83,7 +89,6 @@ cd "$ARTIST/$ALBUM"
 ################################################################################
 yt-dlp -t mp3 \
 	${COVER:-"--write-thumbnail"} \
-	--split-chapters \
 	"${OUTPUT_FORMAT[@]}" \
 	"$URL" 
 rm output.mp3
@@ -91,12 +96,18 @@ rm output.mp3
 ################################################################################
 # Process Cover
 ################################################################################
+# if cover is link
+if [[ "$COVER" =~ ^https?:// ]]; then
+	curl -L "$COVER" -o img
+	COVER="img"
+fi
+
 magick ${COVER:-"*.webp"} \
     -gravity center \
     -crop "%[fx:min(w,h)]x%[fx:min(w,h)]+0+0" +repage \
     -resize 256x256 \
     cover.jpg
-rm *webp
+rm *webp img
 
 ################################################################################
 # Add Artist, Album, and Cover
@@ -111,13 +122,12 @@ eyeD3 --add-image cover.jpg:FRONT_COVER *.mp3
 ################################################################################
 # Add Title and numbering
 ################################################################################
-if "$SPLIT"; then 
+if [[ -n "$SPLIT" ]] ; then 
 	ls *mp3 | 
-		sed -e "s/\([0-9]*\) \(.*\)\.mp3/id3v2 -t \"\2\" \"&\"; eyeD3 --track=\1 \"&\"/" | 
+		sed -e "s/\([0-9]*\) [^a-zA-Z]*\(.*\)\.mp3/id3v2 -t \"\2\" \"&\"; eyeD3 --track=\1 \"&\"; mv \"&\" \"\1 \2.mp3\"/" | 
 		bash
 fi
 
-# sed -e "s/\([0-9]*\) \(.*\)\.mp3/id3v2 -t \"\2\" \"&\"; eyeD3 --track=\1 \"&\"; mv \"&\" \"\2.mp3\"/"
 
 
 
