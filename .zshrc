@@ -26,20 +26,6 @@ zinit light Aloxaf/fzf-tab
 
 eval "$(starship init zsh)"
 
-# Add in snippets
-#zinit snippet OMZP::git
-#zinit snippet OMZP::sudo
-
-# ROUNDY_TEXC_ICON="󱑀"
-# ROUNDY_COLORS_BG_TEXC=2
-# ROUNDY_COLORS_FG_TEXC=0
-# ROUNDY_COLORS_BG_USR=green
-# ROUNDY_COLORS_FG_USR=0
-# ROUNDY_COLORS_BG_DIR=0
-# ROUNDY_COLORS_FG_DIR=15
-# ROUNDY_COLORS_BG_GITINFO=green
-# ROUNDY_COLORS_FG_GITINFO=0
-
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -74,7 +60,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 chpwd() {
     # Prevent infinite loop by checking if inside chpwd
@@ -105,12 +90,11 @@ sxiv() {
 alias rm=trash
 alias ls='lsd'
 alias vim='nvim'
-alias z='zathura'
+# alias z='zathura'
 # alias cat='bat'
 
 # Shell integrations
 eval "$(fzf --zsh)"
-# eval "$(zoxide init --cmd cd zsh)"
 
 # z() { zathura "$@" &>/dev/null &; disown }
 # compdef _zathura z
@@ -123,3 +107,8 @@ export VISUAL="/usr/bin/nvim"
 export PYTHON_BASIC_REPL=1
 
 export PATH="/home/iaquobe/.pixi/bin:$PATH"
+
+# opencode
+export PATH=/home/iaquobe/.opencode/bin:$PATH
+
+eval "$(zoxide init --cmd cd zsh)"

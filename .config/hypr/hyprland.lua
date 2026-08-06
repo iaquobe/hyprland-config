@@ -96,41 +96,29 @@ hl.config({
 	animations = {
 		enabled = true,
 	},
-})
 
--- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
--- hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
--- hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
--- hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
--- hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
--- hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
+	group = {
+		col = { border_active = {colors = {"rgba(d79921ff)", "rgba(cc2441ff)"}, angle = 45}},
+		groupbar = {
+			col = {
+				inactive = "rgba(fbf1c7ff)",
+				active = "rgba(ebdbb2ff)",
+			},
+			text_color = "rgb(665c54)",
+		},
+	},
+})
 
 -- Default springs
 hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
-hl.animation({ leaf = "windows",      enabled = true,  speed = 3,    spring = "easy" })
-hl.animation({ leaf = "windowsIn",    enabled = true,  speed = 3,    spring = "easy" })
+hl.animation({ leaf = "windows",      enabled = true,  speed = 1,    spring = "easy" })
+hl.animation({ leaf = "windowsIn",    enabled = true,  speed = 1,    spring = "easy" })
 hl.animation({ leaf = "windowsOut",   enabled = true,  speed = 1,    bezier = "linear", style = "popin 60%" })
-hl.animation({ leaf = "workspaces",				enabled = true,  speed = 6,    spring = "easy" })
-hl.animation({ leaf = "specialWorkspace",	enabled = true,  speed = 2,    spring = "easy", style = "slidevert"})
-
--- hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
--- hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
--- hl.animation({ leaf = "windows",       enabled = true,  speed = 3,    spring = "easy" })
--- hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 3,    spring = "easy",         style = "popin 87%" })
--- hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1,    bezier = "linear",       style = "popin 87%" })
--- hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
--- hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
--- hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
--- hl.animation({ leaf = "layers",        enabled = true,  speed = 3.81, bezier = "easeOutQuint" })
--- hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "easeOutQuint", style = "fade" })
--- hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
--- hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
--- hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
--- hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
--- hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
--- hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
--- hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+hl.animation({ leaf = "border",       enabled = true,  speed = 1,    spring = "easy" })
+hl.animation({ leaf = "borderangle",  enabled = true,  speed = 1,    spring = "easy" })
+hl.animation({ leaf = "workspaces",				enabled = true,  speed = 1,    spring = "easy", style="slidevert" })
+hl.animation({ leaf = "specialWorkspace",	enabled = true,  speed = 1,    spring = "easy", style="fade"})
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
@@ -186,7 +174,7 @@ hl.config({
 
 hl.gesture({
     fingers = 3,
-    direction = "horizontal",
+    direction = "vert",
     action = "workspace"
 })
 
@@ -213,7 +201,8 @@ hl.bind(mainMod .. " + N",				 hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client --close-latest"))
 
 -- Windows
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized"}))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.window.float())
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
@@ -230,10 +219,11 @@ hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
-hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" , group_aware=true }))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right", group_aware=true }))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up"   , group_aware=true }))
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" , group_aware=true }))
+
 
 for i = 1, 10 do
     local key = i % 10
@@ -248,6 +238,8 @@ hl.bind(mainMod .. " + SHIFT + space", hl.dsp.window.move({ workspace = "special
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + up",   hl.dsp.focus({ workspace = "e-1"}))
+hl.bind(mainMod .. " + down", hl.dsp.focus({ workspace = "e+1"}))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -300,3 +292,6 @@ hl.window_rule({
 
     no_focus = true,
 })
+
+hl.workspace_rule({ workspace = "2", layout="master"})
+hl.workspace_rule({ workspace = "3", layout="scrolling"})
