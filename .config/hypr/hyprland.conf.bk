@@ -83,7 +83,8 @@ animations {
 }
 
 dwindle {
-    pseudotile = true 
+#	 TODO: 
+    # pseudotile = true 
     preserve_split = true 
 }
 
@@ -151,7 +152,8 @@ bind = $mainMod	SHIFT	,F			,fullscreen				, 1
 bind = $mainMod				,P			,pseudo						, 
 bind = $mainMod SHIFT ,P			,pin          		,
 bind = $mainMod				,S			,togglefloating		,
-bind = $mainMod	SHIFT ,S			,togglesplit			, 
+#TODO: 
+# bind = $mainMod	SHIFT ,S			,togglesplit			, 
 bind = $mainMod				,O    	,changegroupactive, f
 bind = $mainMod	SHIFT ,O    	,togglegroup			,
 bind = $mainMod				,W			,movecurrentworkspacetomonitor, +1
@@ -231,10 +233,11 @@ bindm = $mainMod, mouse:273, resizewindow
 # Example windowrule v2
 # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
-windowrulev2 = maxsize 2000 1000, floating:1, onworkspace:6
-windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
-windowrulev2 = tile, title:(WhatsApp Web) # You'll probably like this.
-windowrulev2 = tile, title:(sxiv) 
-windowrulev2 = float, workspace:6
+#TODO: 
+# windowrulev2 = maxsize 2000 1000, floating:1, onworkspace:6
+# windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
+# windowrulev2 = tile, title:(WhatsApp Web) # You'll probably like this.
+# windowrulev2 = tile, title:(sxiv) 
+# windowrulev2 = float, workspace:6
 
 workspace = 4, decorate:true
