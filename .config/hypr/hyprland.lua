@@ -67,7 +67,7 @@ hl.config({
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
 		allow_tearing = false,
 
-		layout = "dwindle",
+		layout = "scrolling",
 	},
 
 	decoration = {
@@ -136,9 +136,10 @@ hl.config({
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
+	scrolling = {
+		fullscreen_on_one_column = true,
+		-- column_width = 0.6,
+	},
 })
 
 ----------------
@@ -293,5 +294,18 @@ hl.window_rule({
     no_focus = true,
 })
 
-hl.workspace_rule({ workspace = "2", layout="master"})
-hl.workspace_rule({ workspace = "3", layout="scrolling"})
+local communication_apps = {
+	{class="^net.thunderbird.Thunderbird$"},
+	{class="^discord$"},
+	{title="^WhatsApp Web$"},
+}
+
+for _, app in ipairs(communication_apps) do
+	hl.window_rule({
+			match = app,
+			scrolling_width = 0.8,
+	})
+end
+
+hl.workspace_rule({ workspace = "3", layout="dwindle"})
+hl.workspace_rule({ workspace = "special:magic", layout="master"})
