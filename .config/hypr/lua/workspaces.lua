@@ -1,3 +1,5 @@
+local v = require "lua.variables"
+
 local workspaces = {
 	["1"] = "scrolling",
 	["2"] = "scrolling",
@@ -42,45 +44,44 @@ local function layout_bindings(actions)
 	end
 end
 
-local mainMod = "SUPER"
-hl.bind(mainMod .. " + SHIFT + l", layout_bindings({
+hl.bind(v.mainMod .. " + SHIFT + l", layout_bindings({
 	scrolling = hl.dsp.layout("swapcol r"),
 	dwindle = hl.dsp.window.move({ direction = "right", group_aware=true }),
 	master  = hl.dsp.window.move({ direction = "right", group_aware=true }),
 }))
 
-hl.bind(mainMod .. " + SHIFT + h", layout_bindings({
+hl.bind(v.mainMod .. " + SHIFT + h", layout_bindings({
 	scrolling = hl.dsp.layout("swapcol l"),
 	dwindle = hl.dsp.window.move({ direction = "left", group_aware=true }),
 	master  = hl.dsp.window.move({ direction = "left", group_aware=true }),
 }))
 
-hl.bind(mainMod .. " + comma", layout_bindings({
+hl.bind(v.mainMod .. " + comma", layout_bindings({
 	scrolling = hl.dsp.layout("consume_or_expel prev"),
 	master    = hl.dsp.layout("rollnext"),
 }))
 
-hl.bind(mainMod .. " + period", layout_bindings({
+hl.bind(v.mainMod .. " + period", layout_bindings({
 	scrolling = hl.dsp.layout("consume_or_expel next"),
 	master    = hl.dsp.layout("rollprev"),
 }))
 
 
 -- scrolling layout
-hl.bind(mainMod .. " + A", layout_bindings({
+hl.bind(v.mainMod .. " + A", layout_bindings({
 	scrolling = hl.dsp.layout("colresize +0.05"),
 	master    = hl.dsp.layout("mfact +0.05"),
 }), {repeating=true})
 
-hl.bind(mainMod .. " + X", layout_bindings({
+hl.bind(v.mainMod .. " + X", layout_bindings({
 	scrolling = hl.dsp.layout("colresize -0.05"),
 	master    = hl.dsp.layout("mfact -0.05"),
 }), {repeating=true})
 
 
-hl.bind(mainMod .. " + left", layout_bindings({
+hl.bind(v.mainMod .. " + left", layout_bindings({
 	scrolling = hl.dsp.layout("move +800"),
 }), {repeating=true})
-hl.bind(mainMod .. " + right", layout_bindings({
+hl.bind(v.mainMod .. " + right", layout_bindings({
 	scrolling = hl.dsp.layout("move -800"),
 }), {repeating=true})
