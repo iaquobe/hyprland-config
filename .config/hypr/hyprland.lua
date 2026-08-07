@@ -194,8 +194,18 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 
 -- Default Programs 
 hl.bind(mainMod .. " + D",			hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + U", 			hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+-- Browser
+hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + U", function()
+	for _, win in ipairs(hl.get_workspace_windows(hl.get_active_workspace())) do
+			if win.class == browser then
+					hl.dispatch(hl.dsp.focus({ window = win }))
+					return
+			end
+	end
+	hl.exec_cmd(browser)
+end)
 
 -- Notifications 
 hl.bind(mainMod .. " + N",				 hl.dsp.exec_cmd("swaync-client -t -sw"))
@@ -204,7 +214,7 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client --close-latest
 -- Windows
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized", layout_aware=false}))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + T", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.window.float())
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
 
@@ -224,10 +234,13 @@ hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
-hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" , group_aware=true }))
-hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right", group_aware=true }))
 hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up"   , group_aware=true }))
 hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" , group_aware=true }))
+hl.bind(mainMod .. " + SHIFT + h", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mainMod .. " + P", hl.dsp.focus({ last = true }))
 
 
 for i = 1, 10 do
