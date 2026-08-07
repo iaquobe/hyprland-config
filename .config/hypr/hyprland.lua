@@ -1,4 +1,3 @@
-local hl = hl
 ------------------
 ---- MONITORS ----
 ------------------
@@ -25,7 +24,7 @@ local browser     = "brave-browser"
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar")
   hl.exec_cmd("swaync")
   hl.exec_cmd("swaybg -i ~/.config/hypr/wallpapers/Tranquility.png")
@@ -82,7 +81,7 @@ hl.config({
 			enabled      = true,
 			range        = 4,
 			render_power = 3,
-			color        = 0xee1a1a1a,
+			-- color        = 0xee1a1a1a,
 		},
 
 		blur = {
@@ -149,8 +148,8 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = 1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
 
@@ -219,9 +218,6 @@ hl.bind(mainMod .. " + T", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.window.float())
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
 
--- scrolling layout
-hl.bind(mainMod .. " + A", hl.dsp.layout("colresize +0.05"), {repeating=true})
-hl.bind(mainMod .. " + X", hl.dsp.layout("colresize -0.05"), {repeating=true})
 
 -- Groups
 hl.bind(mainMod .. " + O", hl.dsp.group.next())
@@ -230,17 +226,13 @@ hl.bind(mainMod .. " + SHIFT + O", hl.dsp.group.toggle())
 -- Workspace
 hl.bind(mainMod .. " + W", hl.dsp.workspace.move({monitor="+1"}))
 
--- Move focus with mainMod + arrow keys
+-- Focus
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up"   , group_aware=true }))
 hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" , group_aware=true }))
-hl.bind(mainMod .. " + SHIFT + h", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + SHIFT + l", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
-hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. " + P", hl.dsp.focus({ last = true }))
 
 
@@ -325,15 +317,5 @@ for _, app in ipairs(communication_apps) do
 	})
 end
 
-hl.workspace_rule({ workspace = "3", layout="dwindle"})
-hl.workspace_rule({ workspace = "special:magic", layout="master"})
 
--- workspace 10 should be centered
-hl.on("workspace.active", function(ws)
-	if ws.id == 10 then
-		hl.config({ scrolling = { focus_fit_method = 0 }})
-	else
-		hl.config({ scrolling = { focus_fit_method = 1 }})
-	end
-end)
-
+require "lua.workspaces"

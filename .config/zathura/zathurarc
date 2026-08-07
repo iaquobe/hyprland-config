@@ -42,14 +42,6 @@ set notification-error-bg '#f8e4c9'
 set notification-warning-fg '#654735'
 set notification-warning-bg '#f8e4c9'
 
-# Tab - TODO
-# set tabbar-fg
-# set tabbar-bg
-
-# Focused tab - TODO
-# set tabbar-focus-fg
-# set tabbar-focus-bg
-
 # Status bar
 set statusbar-fg '#654735'
 set statusbar-bg '#f5edca'
@@ -66,10 +58,3 @@ set recolor-darkcolor '#654735'
 set render-loading-fg '#654735'
 set render-loading-bg '#f5edca'
 
-# # Index mode
-# set index-fg '#654735'
-# set index-bg '#f5edca'
-#
-# # Selected element in index mode
-# set index-active-fg '#f5edca'
-# set index-active-bg '#654735'
