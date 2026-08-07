@@ -202,11 +202,15 @@ hl.bind(mainMod .. " + N",				 hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client --close-latest"))
 
 -- Windows
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized"}))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized", layout_aware=false}))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.window.float())
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
+
+-- scrolling layout
+hl.bind(mainMod .. " + A", hl.dsp.layout("colresize +0.05"), {repeating=true})
+hl.bind(mainMod .. " + X", hl.dsp.layout("colresize -0.05"), {repeating=true})
 
 -- Groups
 hl.bind(mainMod .. " + O", hl.dsp.group.next())
@@ -243,8 +247,8 @@ hl.bind(mainMod .. " + up",   hl.dsp.focus({ workspace = "e-1"}))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ workspace = "e+1"}))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true})
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true})
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
