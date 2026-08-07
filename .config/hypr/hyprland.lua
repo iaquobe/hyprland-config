@@ -138,6 +138,7 @@ hl.config({
 hl.config({
 	scrolling = {
 		fullscreen_on_one_column = true,
+		focus_fit_method = 1,
 		-- column_width = 0.6,
 	},
 })
@@ -326,3 +327,13 @@ end
 
 hl.workspace_rule({ workspace = "3", layout="dwindle"})
 hl.workspace_rule({ workspace = "special:magic", layout="master"})
+
+-- workspace 10 should be centered
+hl.on("workspace.active", function(ws)
+	if ws.id == 10 then
+		hl.config({ scrolling = { focus_fit_method = 0 }})
+	else
+		hl.config({ scrolling = { focus_fit_method = 1 }})
+	end
+end)
+
