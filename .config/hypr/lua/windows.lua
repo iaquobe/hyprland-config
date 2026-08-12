@@ -45,3 +45,8 @@ for _, app in ipairs(communication_apps) do
 end
 
 
+
+hl.window_rule({
+		match = {class="org.pwmt.zathura"},
+		scrolling_width = 0.4,
+})

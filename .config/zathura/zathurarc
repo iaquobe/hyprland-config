@@ -47,8 +47,9 @@ set statusbar-fg '#654735'
 set statusbar-bg '#f5edca'
 
 # Highlighting parts of the document (e.g. show search results)
-set highlight-color '#6c782e'
-set highlight-active-color '#6c782e'
+# set highlight-color '#fff176'
+# set highlight-active-color '#ffcc80'
+# set highlight-fg '#000000'
 
 # Represent light/dark colors in recoloring mode
 set recolor-lightcolor rgba(0,0,0,0)
@@ -58,3 +59,5 @@ set recolor-darkcolor '#654735'
 set render-loading-fg '#654735'
 set render-loading-bg '#f5edca'
 
+
+set selection-clipboard 'clipboard'

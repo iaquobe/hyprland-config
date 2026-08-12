@@ -179,29 +179,31 @@ return {
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		lazy = true,
-		config = function()
-			require('nvim-treesitter.configs').setup({
-				textobjects = {
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
-							["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
-						},
-					},
-				}})
-		end,
-	},
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter-textobjects",
+	-- 	lazy = true,
+	-- 	branch = 'main',
+	-- 	config = function()
+	-- 		require('nvim-treesitter.configs').setup({
+	-- 			textobjects = {
+	-- 				select = {
+	-- 					enable = true,
+	-- 					lookahead = true,
+	-- 					keymaps = {
+	-- 						["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
+	-- 						["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
+	-- 					},
+	-- 				},
+	-- 			}})
+	-- 	end,
+	-- },
 	{
 
 		'nvim-treesitter/nvim-treesitter',
+		branch = 'main',
 		build = ':TSUpdate',
 		event = { 'BufReadPost', 'BufNewFile' },
-		dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
+		-- dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
 		opts = {
 			ensure_installed = {
 				'lua',
@@ -229,10 +231,9 @@ return {
 				},
 			},
 		},
-		config = function(_, opts)
-			require('nvim-treesitter.configs').setup(opts)
-
-		end,
+		-- config = function(_, opts)
+		-- 	require('nvim-treesitter.configs').setup(opts)
+		-- end,
 	},
 	{
 		'nvim-treesitter/playground',

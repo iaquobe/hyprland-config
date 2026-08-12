@@ -85,3 +85,21 @@ hl.bind(v.mainMod .. " + left", layout_bindings({
 hl.bind(v.mainMod .. " + right", layout_bindings({
 	scrolling = hl.dsp.layout("move -800"),
 }), {repeating=true})
+
+hl.bind(v.mainMod .. " + G",         layout_bindings({ scrolling = hl.dsp.layout("move 100000") }))
+hl.bind(v.mainMod .. " + SHIFT + G", layout_bindings({ scrolling = hl.dsp.layout("move -100000") }))
+
+
+
+-- hl.bind(v.mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
+-- hl.bind(v.mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+
+hl.bind(v.mainMod .. " + l", layout_bindings({
+	scrolling = hl.dsp.layout("focus right"),
+	master = hl.dsp.focus({ direction = "right" }),
+}), {repeating=true})
+
+hl.bind(v.mainMod .. " + h", layout_bindings({
+	scrolling = hl.dsp.layout("focus left"),
+	master = hl.dsp.focus({ direction = "left" }),
+}), {repeating=true})

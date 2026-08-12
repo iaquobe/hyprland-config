@@ -57,6 +57,8 @@ vim.opt.formatoptions:remove({ "r", "o" })
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
+vim.opt.clipboard = "unnamedplus"
+
 
 vim.g.loaded_python3_provider = nil
 

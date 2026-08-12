@@ -29,7 +29,8 @@ hl.bind(v.mainMod .. " + N",				 hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(v.mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client --close-latest"))
 
 -- Windows
-hl.bind(v.mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized", layout_aware=false}))
+-- hl.bind(v.mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized", layout_aware=false}))
+hl.bind(v.mainMod .. " + F", hl.dsp.window.fullscreen_state({internal=1, client=-1, layout_aware=true}))
 hl.bind(v.mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 hl.bind(v.mainMod .. " + T", hl.dsp.window.pseudo())
 hl.bind(v.mainMod .. " + S", hl.dsp.window.float())
@@ -44,8 +45,6 @@ hl.bind(v.mainMod .. " + SHIFT + O", hl.dsp.group.toggle())
 hl.bind(v.mainMod .. " + W", hl.dsp.workspace.move({monitor="+1"}))
 
 -- Focus
-hl.bind(v.mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
-hl.bind(v.mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(v.mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(v.mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
 hl.bind(v.mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up"   , group_aware=true }))
