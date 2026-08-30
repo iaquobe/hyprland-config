@@ -10,7 +10,7 @@ local workspaces = {
 	["7"] = "scrolling",
 	["8"] = "scrolling",
 	["9"] = "scrolling",
-	["0"] = "scrolling",
+	["10"] = "scrolling",
 	["special:magic"] = "master",
 }
 
@@ -89,10 +89,6 @@ hl.bind(v.mainMod .. " + right", layout_bindings({
 hl.bind(v.mainMod .. " + G",         layout_bindings({ scrolling = hl.dsp.layout("move 100000") }))
 hl.bind(v.mainMod .. " + SHIFT + G", layout_bindings({ scrolling = hl.dsp.layout("move -100000") }))
 
-
-
--- hl.bind(v.mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
--- hl.bind(v.mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 
 hl.bind(v.mainMod .. " + l", layout_bindings({
 	scrolling = hl.dsp.layout("focus right"),

@@ -106,9 +106,12 @@ export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
 export PYTHON_BASIC_REPL=1
 
+export COLORTERM=truecolor
+
 export PATH="/home/iaquobe/.pixi/bin:$PATH"
 
 # opencode
 export PATH=/home/iaquobe/.opencode/bin:$PATH
 
 eval "$(zoxide init --cmd cd zsh)"
+. "/home/iaquobe/.deno/env"

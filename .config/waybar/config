@@ -20,7 +20,7 @@
 			"custom/notification"
 		],
 		"clock": {
-			"format": "<span>󱑆</span> {:%H:%M <span>󰸗</span> %d.%m}"
+			"format": "<span>󱑆</span> {:%I:%M%p <span>󰸗</span> %d.%m}"
 		},
 		"cpu": {
 			"format": "<span></span> {usage}%",
@@ -92,16 +92,16 @@
 			"format-window-separator": " ",
 			"window-rewrite-default": "󰘔",
 			"window-rewrite": {
-				"title<.*GitLab.*>": "󰊢",
-				"title<.*GitHub.*>": "󰊢",
+				// "title<.*GitLab.*>": "󰊢",
+				// "title<.*GitHub.*>": "󰊢",
 				"title<.*WhatsApp.*>": "",
 				"kitty": "", 
 				"title<.*tmux.*>": "",
-				"title<timah>": "󰥔",
-				"title<.*vim.*>": "",
+				// "title<timah>": "󰥔",
+				"class<kitty> title<.*vim.*>": "",
 				"class<Spotify>": "",
 				"class<.*zathura>": "󰈙",
-				"title<ChatGPT.*>": "󱤓",
+				// "title<ChatGPT.*>": "󱤓",
 				"class<Signal>": "󰭹",
 				"class<Brave-browser>": "", 
 				"class<.*thunderbird>": "󰇮",

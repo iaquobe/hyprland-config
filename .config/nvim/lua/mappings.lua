@@ -74,5 +74,3 @@ map("n", "<leader>dn", '<cmd> DapStepOver <CR>', { desc="debug step over"})
 
 
 map("n", "<leader>ca", '<cmd>lua vim.lsp.buf.code_action()<CR>', { desc = "LSP: Code Action" })
-
-map("n", "<leader>mi", '<cmd>MoltenImagePopup<CR>', { desc = "Molten Image Popup" })

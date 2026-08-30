@@ -12,6 +12,19 @@ hl.bind(v.mainMod .. " + C", hl.dsp.window.close())
 -- Default Programs 
 hl.bind(v.mainMod .. " + D",			hl.dsp.exec_cmd(v.menu))
 hl.bind(v.mainMod .. " + Return", hl.dsp.exec_cmd(v.terminal))
+-- hl.bind(v.mainMod .. " + Return", hl.dsp.exec_cmd(v.terminal))
+
+hl.bind(v.mainMod .. " + SHIFT + Return", function()
+	for _, win in ipairs(hl.get_workspace_windows(hl.get_active_workspace())) do
+			if win.class == v.terminal then
+					hl.dispatch(hl.dsp.focus({ window = win }))
+					return
+			end
+	end
+end)
+
+
+
 -- Browser
 hl.bind(v.mainMod .. " + SHIFT + U", hl.dsp.exec_cmd(v.browser))
 hl.bind(v.mainMod .. " + U", function()

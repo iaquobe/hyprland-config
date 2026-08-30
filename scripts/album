@@ -88,6 +88,7 @@ cd "$ARTIST/$ALBUM"
 ### Download
 ################################################################################
 yt-dlp -t mp3 \
+	--js-runtime "deno:~/.deno/bin/deno"\
 	${COVER:-"--write-thumbnail"} \
 	"${OUTPUT_FORMAT[@]}" \
 	"$URL" 

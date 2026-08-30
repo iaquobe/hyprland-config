@@ -17,11 +17,12 @@ vim.lsp.config("rust_analyzer", {
 })
 
 vim.lsp.config("tinymist", {
-    settings = {
-        formatterMode = "typstyle",
-        exportPdf = "onSave",
-        semanticTokens = "disable"
-    }
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onSave",
+		semanticTokens = "disable",
+		root = 'main.typ',
+	}
 })
 
 -- vim.lsp.config("pyright",{
@@ -34,15 +35,15 @@ vim.lsp.config("texlab", {
 		texlab = {
 			build = {
 				executable = "latexmk",
-        args = {
-          "-pdf",          -- Generate PDF
-          "-interaction=nonstopmode", -- Keep going even if errors
-          "-synctex=1",    -- SyncTeX for forward/inverse search
-          "-shell-escape", -- Allow external commands (optional)
-          "-bibtex",       -- Run BibTeX
-          "%f"             -- Input file
-        },
-        forwardSearchAfter = true,
+				args = {
+					"-pdf",          -- Generate PDF
+					"-interaction=nonstopmode", -- Keep going even if errors
+					"-synctex=1",    -- SyncTeX for forward/inverse search
+					"-shell-escape", -- Allow external commands (optional)
+					"-bibtex",       -- Run BibTeX
+					"%f"             -- Input file
+				},
+				forwardSearchAfter = true,
 				onSave = true,
 			},
 		},

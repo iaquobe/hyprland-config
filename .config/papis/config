@@ -1,6 +1,7 @@
 [settings]
 default-library = papers
 picktool = papis
+add-file-name = {doc[title]}.pdf
 
 [papers]
 dir = /home/iaquobe/Library/papers
