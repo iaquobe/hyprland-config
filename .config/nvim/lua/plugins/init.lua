@@ -7,6 +7,12 @@ return {
 		end,
 	},
 
+	-- {
+	-- 	"AvengeMedia/base46",
+	-- 	lazy = true,
+	-- 	opts = {},
+	-- },
+
 
 	{
 		"alexghergh/nvim-tmux-navigation",

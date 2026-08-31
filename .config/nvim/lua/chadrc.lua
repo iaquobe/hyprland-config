@@ -5,7 +5,8 @@
 local M = {}
 
 M.base46 = {
-	theme = "gruvbox_light",
+	theme = "gruvbox",
+	theme_toggle = { "gruvbox_light", "gruvbox"}
 
 }
 

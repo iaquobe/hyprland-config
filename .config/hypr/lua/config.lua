@@ -14,12 +14,12 @@ hl.monitor({ output = "",      mode = "preferred", position = "auto-left", scale
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
-hl.on("hyprland.start", function ()
-  hl.exec_cmd("waybar")
-  hl.exec_cmd("swaync")
-  hl.exec_cmd("swaybg -i ~/.config/hypr/wallpapers/Tranquility.png")
-  hl.exec_cmd("lxpolkit")
-end)
+-- hl.on("hyprland.start", function ()
+--   hl.exec_cmd("waybar")
+--   hl.exec_cmd("swaync")
+--   hl.exec_cmd("swaybg -i ~/.config/hypr/wallpapers/Tranquility.png")
+--   hl.exec_cmd("lxpolkit")
+-- end)
 
 
 -------------------------------
@@ -45,7 +45,7 @@ hl.config({
 
 		col = {
 			active_border = {colors = {"rgba(d79921ee)", "rgba(cc2441ee)"}, angle=45},
-			inactive_border = "rgba(fbf1c7ee)",
+			inactive_border = "rgba(fbf1c700)",
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -173,4 +173,12 @@ hl.gesture({
 	fingers = 3,
 	direction = "vert",
 	action = "workspace"
+})
+
+
+
+hl.gesture({
+	fingers = 3,
+	direction = "horizontal",
+	action = "scroll_move"
 })
