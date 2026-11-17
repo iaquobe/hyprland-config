@@ -1,4 +1,83 @@
 {
   "version": 1,
-  "configurations": []
+  "configurations": [
+    {
+      "id": "profile_1788385912973_ysgbaq8",
+      "name": "docked",
+      "outputs": {
+        "DP-3": {
+          "mode": "1920x1080@60.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        },
+        "eDP-1": {
+          "mode": "2880x1920@120.000",
+          "position": {
+            "x": 1920,
+            "y": 0
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        }
+      }
+    },
+    {
+      "id": "profile_1788814042893_ztsbov5",
+      "name": "disabled",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2880x1920@120.000",
+          "position": {
+            "x": 3440,
+            "y": 0
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        }
+      }
+    },
+    {
+      "id": "auto_44f50a0b",
+      "name": "",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2880x1920@120.000",
+          "position": {
+            "x": 2560,
+            "y": 0
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        },
+        "DP-11": {
+          "mode": "2560x1440@59.951",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        }
+      }
+    }
+  ]
 }

@@ -31,10 +31,6 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-
-
-
-
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -70,14 +66,6 @@ chpwd() {
     fi
 }
 
-
-# alias muted='() { "$@" &>/dev/null &; disown }'
-# muted_prog=( zathura sxiv )
-# for prog in $muted_prog
-# do
-# 	alias $prog="muted $prog"
-# done
-
 zathura() {
 	nohup zathura "$@" > /dev/null 2>&1 & disown
 }
@@ -90,28 +78,33 @@ sxiv() {
 alias rm=trash
 alias ls='lsd'
 alias vim='nvim'
-# alias z='zathura'
-# alias cat='bat'
+alias z='zathura'
+alias lgit='lazygit'
+alias claude='srt claude'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 
-# z() { zathura "$@" &>/dev/null &; disown }
-# compdef _zathura z
-
-export PATH="$PATH:/home/iaquobe/.local/bin"
 # export PATH="$PATH:/home/iaquobe/.pixi/bin"
 export SUDO_EDITOR="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
 export PYTHON_BASIC_REPL=1
-
 export COLORTERM=truecolor
+export GOPATH="$HOME/.local/go"
 
+export PATH="$PATH:/home/iaquobe/.local/bin"
 export PATH="/home/iaquobe/.pixi/bin:$PATH"
-
-# opencode
+export PATH="$GOPATH/bin:$PATH"
 export PATH=/home/iaquobe/.opencode/bin:$PATH
+
 
 eval "$(zoxide init --cmd cd zsh)"
 . "/home/iaquobe/.deno/env"
+
+
+
+KEYCHAIN_KEYS=(
+    ~/.ssh/id_ed25519
+)
+eval "$(keychain add --noask --quiet --eval "${KEYCHAIN_KEYS[@]}")"

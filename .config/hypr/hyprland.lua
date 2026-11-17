@@ -27,3 +27,6 @@ require "lua.windows"
 -- require("dms.binds")
 -- require("dms.binds-user")
 -- require("dms.colors")
+
+-- DMS Include Configs
+require("dms.outputs")

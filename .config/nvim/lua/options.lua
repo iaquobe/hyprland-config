@@ -58,6 +58,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
 vim.opt.clipboard = "unnamedplus"
+vim.opt.linebreak = true
 
 
 vim.g.loaded_python3_provider = nil
@@ -98,3 +99,17 @@ vim.cmd([[
 	hi link DapUIEndofBuffer EndofBuffer
 ]])
 
+
+local ok, proc = pcall(vim.system, {"dms", "ipc", "theme", "getMode"})
+if ok then
+	vim.g.gruvbox = vim.trim(proc:wait().stdout)
+	if vim.g.gruvbox == "light" then
+			-- light
+		 require("nvconfig").base46.theme = 'gruvbox_light'
+		 require("base46").load_all_highlights()
+	else
+			-- dark
+		 require("nvconfig").base46.theme = 'gruvbox'
+		 require("base46").load_all_highlights()
+	end
+end

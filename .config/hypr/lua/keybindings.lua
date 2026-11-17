@@ -9,14 +9,22 @@ hl.bind(v.mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("dms ipc call lock lock"))
 hl.bind(v.mainMod .. " + Q", hl.dsp.exec_cmd("dms ipc call powermenu open"))
 hl.bind(v.mainMod .. " + C", hl.dsp.window.close())
 
+
+
+hl.bind(v.mainMod .. " + O", hl.dsp.exec_cmd("dms ipc call control-center toggle"))
+hl.bind(v.mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("dms ipc call dash toggle overview"))
+hl.bind(v.mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("dms ipc call dash toggle weather"))
+hl.bind(v.mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("dms ipc call dash toggle media"))
+hl.bind(v.mainMod .. " + T", hl.dsp.exec_cmd("dms ipc call mux toggle"))
+
 -- hl.bind(v.mainMod .. "+ SHIFT + Q", hl.dsp.exec_cmd("lock_and_suspend"))
 -- hl.bind(v.mainMod .. " + Q",				hl.dsp.exec_cmd("hyprlock"))
 
 
 -- Default Programs 
-hl.bind(v.mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
-hl.bind(v.mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call spotlight-bar toggle"))
-hl.bind(v.mainMod .. " + I", hl.dsp.exec_cmd("dms ipc call plugins toggle aiAssistant"))
+-- hl.bind(v.mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("dms ipc call spotlight-bar toggle"))
+hl.bind(v.mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call spotlight toggle"))
+hl.bind(v.mainMod .. " + I", hl.dsp.exec_cmd("dms ipc call widget toggle claudeCodeUsage"))
 hl.bind(v.mainMod .. " + Return", hl.dsp.exec_cmd(v.terminal))
 -- hl.bind(v.mainMod .. " + Return", hl.dsp.exec_cmd(v.terminal))
 
@@ -51,14 +59,14 @@ hl.bind(v.mainMod .. " + N", hl.dsp.exec_cmd("dms ipc call notifications toggle"
 -- hl.bind(v.mainMod .. " + F", hl.dsp.window.fullscreen({mode="maximized", layout_aware=false}))
 hl.bind(v.mainMod .. " + F", hl.dsp.window.fullscreen_state({internal=1, client=-1, layout_aware=true}))
 hl.bind(v.mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
-hl.bind(v.mainMod .. " + T", hl.dsp.window.pseudo())
+-- hl.bind(v.mainMod .. " + T", hl.dsp.window.pseudo())
 hl.bind(v.mainMod .. " + S", hl.dsp.window.float())
 hl.bind(v.mainMod .. " + SHIFT + P", hl.dsp.window.pin())
 
 
--- Groups
-hl.bind(v.mainMod .. " + O", hl.dsp.group.next())
-hl.bind(v.mainMod .. " + SHIFT + O", hl.dsp.group.toggle())
+-- -- Groups
+-- hl.bind(v.mainMod .. " + O", hl.dsp.group.next())
+-- hl.bind(v.mainMod .. " + SHIFT + O", hl.dsp.group.toggle())
 
 -- Workspace
 hl.bind(v.mainMod .. " + W", hl.dsp.workspace.move({monitor="+1"}))
@@ -117,6 +125,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("dms ipc call mpris previous"), { locke
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("dms ipc call mpris next"), { locked = true })
 hl.bind("CTRL + XF86AudioRaiseVolume", hl.dsp.exec_cmd("dms ipc call mpris increment 3"), { locked = true, repeating = true })
 hl.bind("CTRL + XF86AudioLowerVolume", hl.dsp.exec_cmd("dms ipc call mpris decrement 3"), { locked = true, repeating = true })
+hl.bind("Print", hl.dsp.exec_cmd("dms screenshot"))
 
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd([[dms ipc call brightness increment 5 ""]]), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd([[dms ipc call brightness decrement 5 ""]]), { locked = true, repeating = true })

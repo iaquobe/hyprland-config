@@ -327,9 +327,29 @@ return {
 	-- 		vim.keymap.set("n", "<leader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
 	-- 	end,
 	-- },
+	--
+	--
 
+	-- {
+	-- 	"epwalsh/obsidian.nvim",
+	-- 	version = "*",  -- recommended, use latest release instead of latest commit
+	-- 	lazy = true,
+	-- 	ft = "markdown",
+	-- 	dependencies = {
+	-- 		-- Required.
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	opts = {
+	-- 		workspaces = {
+	-- 			{
+	-- 				name = "personal",
+	-- 				path = "~/vaults/personal",
+	-- 			},
+	-- 			{
+	-- 				name = "work",
+	-- 				path = "~/vaults/work",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- }
 }
-
-
-
-
